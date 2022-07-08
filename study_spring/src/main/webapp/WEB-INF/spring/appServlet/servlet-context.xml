@@ -22,6 +22,10 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.leeso0.study" />
+	<context:component-scan base-package="com.leeso0.study.controller" />
+	<context:component-scan base-package="com.leeso0.study.service" />
+	
+	<context:component-scan base-package="com.leeso0.study" />
 	
 	
 	
