@@ -34,12 +34,21 @@
 		<!------------>
 		
 		<div id="select_study_search_create">
-			<span>SEARCH</span>
-			<span>CREATE</span>
+			<span onclick="location.href='search'">SEARCH</span>
+			<span onclick="location.href='create'">CREATE</span>
 		</div>
 		
 		<div id="best_readcount">
 			<h3>조회수 높은 순(6개)</h3>
+			<div id="study_list_best_readcount">
+				<div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div id="recommend_study">
+			<h3>추천(3개)</h3>
 			<div id="study_list_best_readcount">
 				<div>
 					

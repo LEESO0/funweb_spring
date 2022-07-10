@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.leeso0.study.mapper.StudyMapper">
+
+	<!-- study 생성 -->
+	<insert id="insertStudy">
+		INSERT INTO study
+		VALUES (
+				(SELECT IFNULL(MAX(CAST(s.study_idx as unsigned)), 0) + 1 
+				   FROM study s)
+				,(SELECT member_idx
+				    FROM member
+				   WHERE member_id = #{member_id})
+				,#{study.study_subject}
+				,#{study.study_content}
+				,#{study.study_type}
+				,#{study.study_time}
+				,#{study.study_num_of_people}
+				,#{study.study_contact_type}
+				,#{study.study_space}
+				,DATE_FORMAT(now(), "%Y%m%d%H%i%s")
+				,'Y'
+			   )
+	</insert>
+	
+</mapper>
