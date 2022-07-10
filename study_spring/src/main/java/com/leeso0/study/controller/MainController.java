@@ -1,5 +1,7 @@
 package com.leeso0.study.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -70,4 +72,34 @@ public class MainController {
 		return "member/loginHow";
 	}
 	
+	// 로그인 뷰페이지 이동
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+		return "member/login";
+	}
+	
+	// 로그인 비즈니스로직
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(@ModelAttribute MemberVO member, HttpSession session, Model model) {
+		
+		MemberVO memberResult = service.loginMember(member);
+		
+		if(memberResult == null) {
+			model.addAttribute("msg", "아이디 또는 비밀번호가 틀렸습니다");
+			return "fail_back";
+		}
+		
+		session.setAttribute("sId", member.getMember_id());
+		
+		return "redirect:/";
+	}
+	
+	// 로그아웃
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		
+		session.invalidate();
+		
+		return "redirect:/";
+	}
 }

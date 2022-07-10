@@ -12,5 +12,8 @@ public interface MainMapper {
 	
 	// 회원가입 - study_type insert
 	int insertStudyType(@Param("studyType") MemStudyTypeVO studyType, @Param("member") MemberVO member);
+	
+	// 로그인
+	MemberVO selectMember(MemberVO member);
 
 }

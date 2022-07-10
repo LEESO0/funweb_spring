@@ -15,13 +15,36 @@
 	width:1200px; 
 	max-width:none!important;
 }
+#login_member ul li {
+	list-style-type: none;
+	margin: 5px;
+}
+#login_member ul li label {
+	width: 150px;
+}
 </style>
 </head>
 <body>
-	<script type="text/javascript">
-		// 전달받은 오류 메세지(msg) 출력 후 이전페이지로 돌아가기
-		alert("${msg}");
-		location.href="redirect:/";
-	</script>	
+	
+	<div class="container">
+		<div id="login_member">
+			<form action="login" method="post">
+				<ul>
+					<li>
+						<label>ID</label>
+						<input type="text" name="member_id">
+					</li>
+					<li>
+						<label>PASSWORD</label>
+						<input type="password" name="member_pass">
+					</li>
+					<li>
+						<input type="submit" value="LOGIN">
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+	
 </body>
 </html>

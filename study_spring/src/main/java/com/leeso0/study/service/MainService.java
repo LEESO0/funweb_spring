@@ -30,4 +30,16 @@ public class MainService {
 		return isJoinSuccess;
 	}
 
+	// 로그인
+	public MemberVO loginMember(MemberVO member) {
+		
+		MemberVO memberResult = null;
+		
+		memberResult = mapper.selectMember(member);
+		
+		return memberResult;
+	}
+	
+	
+
 }
