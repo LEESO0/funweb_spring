@@ -44,4 +44,19 @@ public class StudyController {
 		
 		return "redirect:/";
 	}
+	
+	// study create 뷰페이지 이동
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String saerch() {
+		return "study/study_search";
+	}
+	
+	// study create 비즈니스 로직
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public String search(@ModelAttribute StudyVO study, HttpSession session) {
+
+		
+		System.out.println(study);
+		return "study/study_search";
+	}
 }
