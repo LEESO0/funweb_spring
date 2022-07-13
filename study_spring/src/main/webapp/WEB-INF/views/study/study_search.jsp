@@ -22,6 +22,18 @@
 #select_study_condition {
 	text-align: center;
 }
+#search_result_area {
+	width: 100%;
+	display: flex;
+}
+.study_card {
+	width: 200px;
+	height: 150px;
+	margin: 20px;
+	border: 1px solid black;
+	padding: 10px;
+	border-radius: 10px;
+}
 </style>
 <script type="text/javascript">
 $(function() {
@@ -32,6 +44,7 @@ $(function() {
 		$("#study_space").html("");
 	});
 });
+
 </script>
 </head>
 <body>
@@ -41,28 +54,28 @@ $(function() {
 		<!------------>
 		
 		<div id="select_study_condition">
-			<form action="search" method="post">
+			<form action="search" method="get">
 				<div id="study_type">
 					분야
-					<input type="radio" name="study_type" value="수능"> 수능
-					<input type="radio" name="study_type" value="공무원"> 공무원
-					<input type="radio" name="study_type" value="면접"> 면접
-					<input type="radio" name="study_type" value="자격증"> 자격증
-					<input type="radio" name="study_type" value="어학"> 어학
-					<input type="radio" name="study_type" value="기타"> 기타
+					<input type="radio" name="study_type" value="수능" <c:if test="${study.study_type eq '수능' }"> checked </c:if>> 수능
+					<input type="radio" name="study_type" value="공무원" <c:if test="${study.study_type eq '공무원' }"> checked </c:if>> 공무원
+					<input type="radio" name="study_type" value="면접" <c:if test="${study.study_type eq '면접' }"> checked </c:if>> 면접
+					<input type="radio" name="study_type" value="자격증" <c:if test="${study.study_type eq '자격증' }"> checked </c:if>> 자격증
+					<input type="radio" name="study_type" value="어학" <c:if test="${study.study_type eq '어학' }"> checked </c:if>> 어학
+					<input type="radio" name="study_type" value="기타" <c:if test="${study.study_type eq '기타' }"> checked </c:if>> 기타
 				</div>
 				<div id="study_time">
 					시간
-					<input type="radio" name="study_time" value="평일"> 평일
-					<input type="radio" name="study_time" value="주말"> 주말
+					<input type="radio" name="study_time" value="평일" <c:if test="${study.study_time eq '평일' }"> checked </c:if>> 평일
+					<input type="radio" name="study_time" value="주말" <c:if test="${study.study_time eq '주말' }"> checked </c:if>> 주말
 				</div>
-				<div id="study_num_of_people">
-					모집인원
-					<input type="text" name="study_num_of_people"> 명
-				</div>
+<!-- 				<div id="study_num_of_people"> -->
+<!-- 					모집인원 -->
+<!-- 					<input type="text" name="study_num_of_people"> 명 -->
+<!-- 				</div> -->
 				<div id="study_contact_type">
-					<input type="radio" id="type1" name="study_contact_type" value="대면"> 대면
-					<input type="radio" id="type2" name="study_contact_type" value="비대면"> 비대면
+					<input type="radio" id="type1" name="study_contact_type" value="대면" <c:if test="${study.study_contact_type eq '대면' }"> checked </c:if>> 대면
+					<input type="radio" id="type2" name="study_contact_type" value="비대면" <c:if test="${study.study_contact_type eq '비대면' }"> checked </c:if>> 비대면
 				</div>
 				<div id="study_space"></div>
 				
@@ -72,26 +85,42 @@ $(function() {
 				</div>
 			</form>
 		</div>
-		
+			
 		<hr>
 		
 		<div id="study_search_filter">
-			<div id="search_keyword_filter">
-				<select name="search_keyword">
-					<option value="search_subject">제목</option>
-					<option value="search_content">내용</option>
-				</select>
-				<select name="search_filter">
-					<option value="search_ing">모집중</option>
-					<option value="search_done">모집완료</option>
-				</select>
-				<input type="text"><input type="button" value="검색">
-			</div>
+			<form action="search" method="get">
+				<input type="hidden" name="study_type" value="${study.study_type }">
+				<input type="hidden" name="study_time" value="${study.study_time }">
+				<input type="hidden" name="study_num_of_people" value="${study.study_num_of_people }">
+				<input type="hidden" name="study_contact_type" value="${study.study_contact_type }">
+				<div id="search_keyword_filter">
+					<select name="search_filter1">
+						<option value="search_ing" <c:if test="${search_filter1 eq 'search_ing' }"> selected </c:if>>모집중</option>
+						<option value="search_done" <c:if test="${search_filter1 eq 'search_done' }"> selected </c:if>>모집완료</option>
+					</select>
+					<select name="search_filter2">
+						<option value="search_subject" <c:if test="${search_filter2 eq 'search_subject' }"> selected </c:if>>제목</option>
+						<option value="search_content" <c:if test="${search_filter2 eq 'search_content' }"> selected </c:if>>내용</option>
+					</select>
+					<input type="text" name="search_keyword" value="${search_keyword }"><input type="submit" value="검색">
+				</div>
+			</form>
 		</div>
 		
-		<!-- ajax로 list 구현 -->
 		<div id="search_result_area">
-		
+			<c:forEach items="${studyList }" var="study">
+				<div class="study_card">
+					<div>${study.study_subject } / ${study.study_status }</div>
+					<div>
+						<span>${study.study_type }</span>
+						<span>${study.study_time }</span>
+						<span>${study.study_num_of_people }</span>
+						<span>${study.study_contact_type }</span>
+						<span>${study.study_space }</span>
+					</div>
+				</div>
+			</c:forEach>
 		</div>
 		<!-- footer -->
 		<jsp:include page="../inc/footer.jsp"/>

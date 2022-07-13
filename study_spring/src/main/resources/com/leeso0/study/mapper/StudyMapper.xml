@@ -23,4 +23,148 @@
 			   )
 	</insert>
 	
+	<!-- studyList listCount 값 구하기 -->
+	<select id="selectStudyListCount" resultType="int">
+		SELECT COUNT(study_idx)
+		  FROM study
+		 WHERE 1=1
+		   <if test="study.study_type != null">
+		  	 AND study_type = #{study.study_type}
+		   </if>
+		   <if test="study.study_time != null">
+		  	 AND study_time = #{study.study_time}
+		   </if>
+		   <if test="study.study_num_of_people != ''">
+		     AND study_num_of_people = #{study.study_num_of_people}
+		   </if>
+		   <if test="study.study_contact_type != null">
+		 	 AND study_contact_type = #{study.study_contact_type}
+		   </if>
+		   <if test="study.study_space != null">
+			 AND study_space = #{study.study_space}
+		   </if>
+	</select>
+	
+	<select id="selectStudyList" resultType="java.util.HashMap">
+		SELECT study_idx,
+			   study_subject,
+			   study_type,
+			   study_time,
+			   study_num_of_people,
+			   study_contact_type,
+			   study_space,
+			   study_date,
+			   study_status
+		  FROM study
+		 WHERE 1=1
+		   <if test="study.study_type != null">
+		  	 AND study_type = #{study.study_type}
+		   </if>
+		   <if test="study.study_time != null">
+		  	 AND study_time = #{study.study_time}
+		   </if>
+		   <if test="study.study_num_of_people != '' and study.study_num_of_people != null">
+		     AND study_num_of_people = #{study.study_num_of_people}
+		   </if>
+		   <if test="study.study_contact_type != null">
+		 	 AND study_contact_type = #{study.study_contact_type}
+		   </if>
+		   <if test="study.study_space != null">
+			 AND study_space = #{study.study_space}
+		   </if>
+		  LIMIT #{pageInfo.startRow}, #{pageInfo.listLimit}
+	</select>
+	
+	<!-- studyList listCount 조회 (정렬, 필터) -->
+	<select id="selectFilteredStudyListCount" resultType="int">
+		SELECT COUNT(study_idx)
+		  FROM study
+		 WHERE 1=1
+		   <if test="study.study_type != null and study.study_type != ''">
+		  	 AND study_type = #{study.study_type}
+		   </if>
+		   <if test="study.study_time != null and study.study_time != ''">
+		  	 AND study_time = #{study.study_time}
+		   </if>
+		   <if test="study.study_num_of_people != '' and study.study_num_of_people != null">
+		     AND study_num_of_people = #{study.study_num_of_people}
+		   </if>
+		   <if test="study.study_contact_type != null and study.study_contact_type != ''">
+		 	 AND study_contact_type = #{study.study_contact_type}
+		   </if>
+		   <if test="study.study_space != null and study.study_space != ''">
+			 AND study_space = #{study.study_space}
+		   </if>
+		   <choose>
+			   <when test="search_filter1 == 'search_ing'">
+			     AND study_status = 'Y'
+			   </when>
+			   <when test="search_filter1 == 'search_done'">
+			     AND study_status = 'N'
+			   </when>
+		   </choose>
+		   <choose>
+				<when test="search_filter2 == 'search_subject'">
+					<if test="search_keyword != null">
+						AND study_subject LIKE #{search_keyword}
+					</if>
+				</when>
+				<when test="search_filter2 == 'search_content'">
+					<if test="search_keyword != null">
+						AND study_content LIKE #{search_keyword}
+					</if>
+		   		</when>
+		   </choose>
+	</select>
+	
+	<!-- studyList 조회 (정렬, 필터) -->
+	<select id="selectFilteredStudyList" resultType="java.util.HashMap">
+		SELECT study_idx,
+			   study_subject,
+			   study_type,
+			   study_time,
+			   study_num_of_people,
+			   study_contact_type,
+			   study_space,
+			   study_date,
+			   study_status
+		  FROM study
+		 WHERE 1=1
+		   <if test="study.study_type != null and study.study_type != ''">
+		  	 AND study_type = #{study.study_type}
+		   </if>
+		   <if test="study.study_time != null and study.study_time != ''">
+		  	 AND study_time = #{study.study_time}
+		   </if>
+		   <if test="study.study_num_of_people != '' and study.study_num_of_people != null">
+		     AND study_num_of_people = #{study.study_num_of_people}
+		   </if>
+		   <if test="study.study_contact_type != null and study.study_contact_type != ''">
+		 	 AND study_contact_type = #{study.study_contact_type}
+		   </if>
+		   <if test="study.study_space != null and study.study_space != ''">
+			 AND study_space = #{study.study_space}
+		   </if>
+		   <choose>
+			   <when test="search_filter1 == 'search_ing'">
+			     AND study_status = 'Y'
+			   </when>
+			   <when test="search_filter1 == 'search_done'">
+			     AND study_status = 'N'
+			   </when>
+		   </choose>
+		   <choose>
+				<when test="search_filter2 == 'search_subject'">
+					<if test="search_keyword != null">
+						AND study_subject LIKE #{search_keyword}
+					</if>
+				</when>
+				<when test="search_filter2 == 'search_content'">
+					<if test="search_keyword != null">
+						AND study_content LIKE #{search_keyword}
+					</if>
+		   		</when>
+		   </choose>
+		  LIMIT #{pageInfo.startRow}, #{pageInfo.listLimit}
+	</select>
 </mapper>
