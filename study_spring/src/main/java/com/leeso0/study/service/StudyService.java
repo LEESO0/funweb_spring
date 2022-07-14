@@ -63,6 +63,11 @@ public class StudyService {
 	public void registerStudy(String study_idx, String member_id) {
 		mapper.insertStudyMember(study_idx, member_id);
 	}
+	
+	// study modify
+	public int ModifyStudy(StudyVO study, String member_id) {
+		return mapper.updateStudy(study, member_id);
+	}
 
 
 }

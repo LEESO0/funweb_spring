@@ -65,7 +65,7 @@
 		<div id="register_study">
 			<c:choose>
 				<c:when test="${study.member_id eq sessionScope.sId }">
-					<input type="button" value="수정" onclick="location.href='modifyStudy?study_idx=${study.study_idx }'">
+					<input type="button" value="수정" onclick="location.href='modifyStudy?study_idx=${param.study_idx }&pageNum=${pageNum }'">
 				</c:when>
 				<c:when test="${study.member_id ne sessionScope.sId }">
 					<input type="button" value="신청" onclick="location.href='register?study_idx=${param.study_idx }&pageNum=${pageNum }'">

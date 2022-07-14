@@ -217,6 +217,21 @@
 			       FROM member
 			      WHERE member_id = #{member_id})
 			   )
-			
 	</insert>
+	
+	<!-- study modify -->
+	<update id="updateStudy">
+		UPDATE study
+		   SET study_type = #{study.study_type}
+			   ,study_time = #{study.study_time}
+			   ,study_num_of_people = #{study.study_num_of_people}
+			   ,study_contact_type = #{study.study_contact_type}
+			   ,study_space = #{study.study_space}
+			   ,study_subject = #{study.study_subject}
+			   ,study_content = #{study.study_content}
+		 WHERE study_idx = #{study.study_idx}
+		   AND member_idx = (SELECT member_idx
+		   					   FROM member
+		   					  WHERE member_id = #{member_id})  
+	</update>
 </mapper>

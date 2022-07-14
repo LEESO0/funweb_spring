@@ -115,7 +115,7 @@ public class StudyController {
 	public String register(String study_idx, String pageNum, HttpSession session, Model model) {
 		
 		String member_id = session.getAttribute("sId").toString();
-		if(session.getAttribute("sId") == null) {
+		if(member_id == null) {
 			model.addAttribute("msg", "로그인 후 신청 가능합니다");
 			return "fail_back";
 		}
@@ -133,4 +133,38 @@ public class StudyController {
 		
 	}
 	
+	@RequestMapping(value = "modifyStudy", method = RequestMethod.GET)
+	public String modifyStudy(String study_idx, String pageNum, HttpSession session, Model model) {
+		
+		String member_id = session.getAttribute("sId").toString();
+		if(member_id == null) {
+			model.addAttribute("msg", "비회원 상태 입니다");
+			return "fail_back";
+		}
+		
+		HashMap<String, String> study = service.getStudyView(study_idx);
+		
+		model.addAttribute("study", study);
+		model.addAttribute("pageNum", pageNum);
+		
+		return "study/study_modify";
+		
+	}
+	
+	@RequestMapping(value = "modifyStudy", method = RequestMethod.POST)
+	public String modifyStudy(StudyVO study, String pageNum, HttpSession session, Model model) {
+		
+		String member_id = session.getAttribute("sId").toString();
+		
+		int modifyCount = service.ModifyStudy(study, member_id);
+		
+		if(modifyCount <= 0) {
+			model.addAttribute("msg", "수정을 실패하였습니다");
+			return "fail_back";
+		}
+		model.addAttribute("msg", "수정이 완료되었습니다");
+		model.addAttribute("path", "studyView?study_idx=" + study.getStudy_idx() + "&pageNum=" + pageNum);
+		return "success_msg_path";
+		
+	}
 }

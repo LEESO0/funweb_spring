@@ -38,5 +38,8 @@ public interface StudyMapper {
 	
 	// study register
 	void insertStudyMember(@Param("study_idx") String study_idx, @Param("member_id") String member_id);
+	
+	// study modify
+	int updateStudy(@Param("study") StudyVO study, @Param("member_id") String member_id);
 
 }
