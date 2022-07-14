@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +16,9 @@
 	width:1200px; 
 	max-width:none!important;
 }
+.commu_list_ul {
+	width: 100%;
+}
 </style>
 </head>
 <body>
@@ -22,26 +27,42 @@
 		<jsp:include page="../inc/header.jsp"/>
 		<!------------>
 		
-		<div id="commu_search">
-			<select>
-				<option>제목</option>
-			</select>
-			<input type="text">검색
+		<div id="commu_search_create" class="d-flex justify-content-between">
+			<div id="commu_search" class="mx-3">
+				<form action="community">
+					<select name="search_filter1">
+						<option value="latest" <c:if test="${search_filter1 eq 'latest' }"> selected </c:if>>최신순</option>
+						<option value="readCount" <c:if test="${search_filter1 eq 'readCount' }"> selected </c:if>>조회순</option>
+						<option value="like" <c:if test="${search_filter1 eq 'like' }"> selected </c:if>>좋아요순</option>
+					</select>
+					<select name="search_filter2">
+						<option value="search_subject" <c:if test="${search_filter2 eq 'search_subject' }"> selected </c:if>>제목</option>
+						<option value="search_content" <c:if test="${search_filter2 eq 'search_content' }"> selected </c:if>>내용</option>
+					</select>
+					<input type="text" name="search_keyword" value="${search_keyword }"><input type="submit" value="검색">
+				</form>
+			</div>
+			
+			<div id="commu_create">
+				<input type="button" value="CREATE" class="mx-3">
+			</div>
 		</div>
-		
 		<div id="commu_list">
-			<table>
-				<tr>
-					<th>no</th>
-					<th>subject</th>
-					<th>writer</th>
-					<th>date</th>
-				</tr>
+			<table id="commu_list_table" class="table table-hover">
+				<c:forEach items="${commuList }" var="commu">
+					<tr>
+						<td class="col-8">
+							<span>${commu.commu_idx }</span><br>
+							<span>${commu.commu_subject }</span>
+						</td>
+						<td class="col-2">${commu.commu_like }</td>
+						<td class="col-2">
+							<span>${commu.member_name }</span><br>
+							<span>${commu.commu_date }</span>
+						</td>
+					</tr>
+				</c:forEach>
 			</table>
-		</div>
-		
-		<div id="commu_create">
-			<input type="button" value="CREATE">
 		</div>
 		
 		<!-- footer -->

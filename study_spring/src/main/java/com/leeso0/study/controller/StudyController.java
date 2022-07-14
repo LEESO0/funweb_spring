@@ -60,8 +60,6 @@ public class StudyController {
 			@RequestParam(defaultValue = "1") int pageNum, 
 			Model model) {
 		
-		System.out.println(study);
-		
 		int listCount = service.getFilteredStudyListCount(study, search_keyword, search_filter1, search_filter2);
 		int listLimit = 30; // 한 페이지 당 표시할 게시물 목록 갯수
 		int pageLimit = 10; // 한 페이지 당 표시할 페이지 목록 갯수

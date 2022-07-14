@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.leeso0.study.mapper.CommunityMapper">
+
+	<!-- commuListCount 조회 -->
+	<select id="selectCommuListCount" resultType="int">
+		SELECT COUNT(commu_idx)
+		  FROM community
+		 WHERE 1=1
+	   <choose>
+			<when test="search_filter2 == 'commu_subject'">
+				<if test="search_keyword != null">
+					AND commu_subject LIKE #{search_keyword}
+				</if>
+			</when>
+			<when test="search_filter2 == 'commu_content'">
+				<if test="search_keyword != null">
+					AND commu_content LIKE #{search_keyword}
+				</if>
+	   		</when>
+	   </choose>
+	</select>
+
+	<!-- commuList 조회 -->
+	<select id="selectCommuList" resultType="java.util.HashMap">
+		SELECT c.commu_idx, 
+			   m.member_name, 
+			   c.commu_subject, 
+			   COUNT(cl.commu_like_idx) AS commu_like, 
+			   c.commu_date
+		  FROM community c
+		  LEFT OUTER JOIN commu_like cl
+		    ON c.commu_idx = cl.commu_idx
+		  JOIN member m
+		    ON m.member_idx = c.member_idx
+		 WHERE 1=1
+		 <choose>
+			<when test="search_filter2 == 'search_subject'">
+				<if test="search_keyword != null">
+					AND commu_subject LIKE #{search_keyword}
+				</if>
+			</when>
+			<when test="search_filter2 == 'search_content'">
+				<if test="search_keyword != null">
+					AND commu_content LIKE #{search_keyword}
+				</if>
+		   	</when>
+		 </choose>
+		 GROUP BY commu_idx
+	     <choose>
+		  	 <when test="search_filter1 == 'latest'">
+		    	ORDER BY commu_date DESC
+		   	 </when>
+		     <when test="search_filter1 == 'readCount'">
+		     	ORDER BY commu_readcount DESC
+		     </when>
+		     <when test="search_filter1 == 'like'">
+		     	ORDER BY commu_like DESC
+		     </when>
+	     </choose>
+		 LIMIT #{pageInfo.startRow}, #{pageInfo.listLimit}
+	</select>
+
+</mapper>

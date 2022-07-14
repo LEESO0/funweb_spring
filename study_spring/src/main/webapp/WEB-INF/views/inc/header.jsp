@@ -9,9 +9,9 @@
 </head>
 <body>
 	<div class="row">
-		<div class="col-6">study</div>
+		<div class="col-6" onclick="location.href='./'">study</div>
 		<div class="col-3"><input type="text"></div>
-		<div class="col-1">community</div>
+		<div class="col-1" onclick="location.href='community'">community</div>
 		<c:choose>
 			<c:when test="${sessionScope.sId eq null }">
 				<div class="col-1" onclick="location.href='loginHow'">login</div>
