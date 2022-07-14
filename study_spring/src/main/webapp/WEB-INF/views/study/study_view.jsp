@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,37 +25,40 @@
 		
 		<div id="study_detail_area">
 			<div id="study_type">
-				분야
+				${study.study_type }
 			</div>
 			<div id="study_time">
-				타임
+				${study.study_time }
 			</div>
 			<div id="study_num_of_people">
-				모집인원
+				${study.study_num_of_people } 명
 			</div>
 			<div id="study_contact_type">
-				대면/비대면			
+				${study.study_contact_type }
 			</div>
 			<div id="study_space">
-				지역
+				${study.study_space }
 			</div>
 			
 			<hr>
 			
-			<div id="study_writer">
-				작성자
+			<div id="member_name">
+				${study.member_name }
 			</div>
 			<div id="study_subject">
-				제목
+				${study.study_subject }
 			</div>
 			<div id="study_content">
-				내용
+				${study.study_content }
 			</div>
 			<div id="study_date">
-				날짜
+				${study.study_date }
+			</div>
+			<div id="study_readcount">
+				${study.study_readcount }
 			</div>
 			<div id="study_status">
-				모집중/모집완료
+				${study.study_status }
 			</div>
 		</div>
 		

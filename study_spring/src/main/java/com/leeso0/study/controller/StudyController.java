@@ -95,4 +95,19 @@ public class StudyController {
 		return "study/study_search";
 	}
 	
+	@RequestMapping(value = "studyView", method = RequestMethod.GET)
+	public String studyView(String study_idx, String pageNum, Model model) {
+		
+		// 조회수 증가 작업
+		service.increaseReadcount(study_idx);
+		
+		// view 조회
+		HashMap<String, String> study = service.getStudyView(study_idx);
+		
+		model.addAttribute("study", study);
+		model.addAttribute("pageNum", pageNum);
+		
+		return "study/study_view";
+	}
+	
 }

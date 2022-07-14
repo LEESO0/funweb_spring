@@ -42,5 +42,16 @@ public class StudyService {
 		search_keyword = '%' + search_keyword + '%';
 		return mapper.selectFilteredStudyList(study, pageInfo, search_keyword, search_filter1, search_filter2);
 	}
+	
+	// 조회수 증가 작업
+	public void increaseReadcount(String study_idx) {
+		mapper.updateReadcount(study_idx);
+	}
+
+	// study view 조회
+	public HashMap<String, String> getStudyView(String study_idx) {
+		return mapper.selectStudyView(study_idx);
+	}
+
 
 }

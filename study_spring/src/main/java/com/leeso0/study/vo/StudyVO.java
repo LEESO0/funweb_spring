@@ -13,6 +13,7 @@ public class StudyVO {
 	private String study_space;
 	private String study_date;
 	private String study_status;
+	private String study_readcount;
 	
 	public String getStudy_idx() {
 		return study_idx;
@@ -80,6 +81,12 @@ public class StudyVO {
 	public void setStudy_status(String study_status) {
 		this.study_status = study_status;
 	}
+	public String getStudy_readcount() {
+		return study_readcount;
+	}
+	public void setStudy_readcount(String study_readcount) {
+		this.study_readcount = study_readcount;
+	}
 	
 	@Override
 	public String toString() {
@@ -87,7 +94,7 @@ public class StudyVO {
 				+ ", study_content=" + study_content + ", study_type=" + study_type + ", study_time=" + study_time
 				+ ", study_num_of_people=" + study_num_of_people + ", study_contact_type=" + study_contact_type
 				+ ", study_space=" + study_space + ", study_date=" + study_date + ", study_status=" + study_status
-				+ "]";
+				+ ", study_readcount=" + study_readcount + "]";
 	}
 	
 }

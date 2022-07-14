@@ -110,7 +110,7 @@ $(function() {
 		
 		<div id="search_result_area">
 			<c:forEach items="${studyList }" var="study">
-				<div class="study_card">
+				<div class="study_card" onclick="location.href='studyView?study_idx=${study.study_idx}&page=${pageInfo.pageNum }'">
 					<div>${study.study_subject } / ${study.study_status }</div>
 					<div>
 						<span>${study.study_type }</span>
@@ -121,6 +121,36 @@ $(function() {
 					</div>
 				</div>
 			</c:forEach>
+		</div>
+		
+		<div class ="paging">
+			<c:choose>
+				<c:when test="${pageInfo.pageNum > 1 }">
+					<input type="button" value=" < " onclick="location.href='search?pageNum=${pageInfo.pageNum - 1 }'">
+				</c:when>
+				<c:otherwise>
+					<input type="button" value=" < ">
+				</c:otherwise>
+			</c:choose>
+	
+			<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">
+				<c:choose>
+				<c:when test="${pageInfo.pageNum eq i }">
+					${i }
+				</c:when>
+				<c:otherwise>
+					<a href="search?pageNum=${i }">${i }</a>
+				</c:otherwise>
+			</c:choose>
+			</c:forEach>
+			<c:choose>
+				<c:when test="${pageInfo.pageNum < pageInfo.maxPage }">
+					<input type="button" value=" > " onclick="location.href='search?pageNum=${pageInfo.pageNum + 1 }'">
+				</c:when>
+				<c:otherwise>
+					<input type="button" value=" > ">
+				</c:otherwise>
+			</c:choose>
 		</div>
 		<!-- footer -->
 		<jsp:include page="../inc/footer.jsp"/>

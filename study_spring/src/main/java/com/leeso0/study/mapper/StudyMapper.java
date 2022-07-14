@@ -26,4 +26,10 @@ public interface StudyMapper {
 	ArrayList<HashMap<String, String>> selectFilteredStudyList(@Param("study") StudyVO study, @Param("pageInfo") PageInfo pageInfo, @Param("search_keyword") String search_keyword,
 			@Param("search_filter1") String search_filter1, @Param("search_filter2") String search_filter2);
 
+	// 조회수 증가 작업
+	void updateReadcount(String study_idx);
+	
+	// study view 조회
+	HashMap<String, String> selectStudyView(String study_idx);
+
 }
