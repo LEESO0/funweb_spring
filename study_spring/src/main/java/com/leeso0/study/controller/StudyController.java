@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.leeso0.study.service.StudyService;
 import com.leeso0.study.vo.PageInfo;
+import com.leeso0.study.vo.StudyMemberVO;
 import com.leeso0.study.vo.StudyVO;
 
 @Controller
@@ -108,6 +109,28 @@ public class StudyController {
 		model.addAttribute("pageNum", pageNum);
 		
 		return "study/study_view";
+	}
+	
+	@RequestMapping(value = "register", method = RequestMethod.GET)
+	public String register(String study_idx, String pageNum, HttpSession session, Model model) {
+		
+		String member_id = session.getAttribute("sId").toString();
+		if(session.getAttribute("sId") == null) {
+			model.addAttribute("msg", "로그인 후 신청 가능합니다");
+			return "fail_back";
+		}
+		
+		StudyMemberVO studyMember = service.checkStudyMember(study_idx, member_id);
+		
+		if(studyMember != null) {
+			model.addAttribute("msg", "이미 신청된 스터디입니다");
+			return "fail_back";
+		}
+		service.registerStudy(study_idx, member_id);
+		model.addAttribute("msg", "신청 완료되었습니다");
+		model.addAttribute("path", "studyView?study_idx=" + study_idx + "&pageNum=" + pageNum);
+		return "success_msg_path";
+		
 	}
 	
 }

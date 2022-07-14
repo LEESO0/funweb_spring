@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.leeso0.study.mapper.StudyMapper;
 import com.leeso0.study.vo.PageInfo;
+import com.leeso0.study.vo.StudyMemberVO;
 import com.leeso0.study.vo.StudyVO;
 
 @Service
@@ -51,6 +52,16 @@ public class StudyService {
 	// study view 조회
 	public HashMap<String, String> getStudyView(String study_idx) {
 		return mapper.selectStudyView(study_idx);
+	}
+	
+	// study 신청 여부 조회
+	public StudyMemberVO checkStudyMember(String study_idx, String member_id) {
+		return mapper.selectStudyMember(study_idx, member_id);
+	}
+
+	// study register
+	public void registerStudy(String study_idx, String member_id) {
+		mapper.insertStudyMember(study_idx, member_id);
 	}
 
 

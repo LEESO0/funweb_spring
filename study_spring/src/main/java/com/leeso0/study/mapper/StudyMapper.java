@@ -6,6 +6,7 @@ import java.util.HashMap;
 import org.apache.ibatis.annotations.Param;
 
 import com.leeso0.study.vo.PageInfo;
+import com.leeso0.study.vo.StudyMemberVO;
 import com.leeso0.study.vo.StudyVO;
 
 public interface StudyMapper {
@@ -31,5 +32,11 @@ public interface StudyMapper {
 	
 	// study view 조회
 	HashMap<String, String> selectStudyView(String study_idx);
+	
+	// study 신청 여부 조회
+	StudyMemberVO selectStudyMember(@Param("study_idx") String study_idx, @Param("member_id") String member_id);
+	
+	// study register
+	void insertStudyMember(@Param("study_idx") String study_idx, @Param("member_id") String member_id);
 
 }

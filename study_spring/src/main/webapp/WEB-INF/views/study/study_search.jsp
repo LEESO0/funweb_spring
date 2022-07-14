@@ -110,7 +110,7 @@ $(function() {
 		
 		<div id="search_result_area">
 			<c:forEach items="${studyList }" var="study">
-				<div class="study_card" onclick="location.href='studyView?study_idx=${study.study_idx}&page=${pageInfo.pageNum }'">
+				<div class="study_card" onclick="location.href='studyView?study_idx=${study.study_idx}&pageNum=${pageInfo.pageNum }'">
 					<div>${study.study_subject } / ${study.study_status }</div>
 					<div>
 						<span>${study.study_type }</span>

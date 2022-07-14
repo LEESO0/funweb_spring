@@ -186,6 +186,7 @@
 			   s.study_contact_type,
 			   s.study_space,
 			   m.member_name,
+			   m.member_id,
 			   s.study_subject,
 			   s.study_content,
 			   s.study_date,
@@ -195,4 +196,27 @@
 		 WHERE s.study_idx = #{study_idx}
 		   AND s.member_idx = m.member_idx
 	</select>
+	
+	<!-- study 신청 여부 조회 -->
+	<select id="selectStudyMember" resultType="com.leeso0.study.vo.StudyMemberVO">
+		SELECT sm.study_mem_idx
+		  FROM study_member sm, member m
+		 WHERE sm.study_idx = #{study_idx}
+		   AND sm.member_idx = m.member_idx
+		   AND m.member_id = #{member_id}
+	</select>
+	
+	<!-- study register -->
+	<insert id="insertStudyMember">
+		INSERT INTO study_member
+		VALUES (
+				(SELECT IFNULL(MAX(CAST(sm.study_mem_idx as unsigned)), 0) + 1 
+				   FROM study_member sm)
+			   ,#{study_idx}
+			   ,(SELECT member_idx
+			       FROM member
+			      WHERE member_id = #{member_id})
+			   )
+			
+	</insert>
 </mapper>
