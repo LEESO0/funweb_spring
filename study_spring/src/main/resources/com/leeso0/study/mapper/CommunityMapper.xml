@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.leeso0.study.mapper.CommunityMapper">
 
-	<!-- commuListCount 조회 -->
-	<select id="selectCommuListCount" resultType="int">
+	<!-- articleListCount 조회 -->
+	<select id="selectArticleListCount" resultType="int">
 		SELECT COUNT(commu_idx)
 		  FROM community
 		 WHERE 1=1
@@ -21,8 +21,8 @@
 	   </choose>
 	</select>
 
-	<!-- commuList 조회 -->
-	<select id="selectCommuList" resultType="java.util.HashMap">
+	<!-- articleList 조회 -->
+	<select id="selectArticleList" resultType="java.util.HashMap">
 		SELECT c.commu_idx, 
 			   m.member_name, 
 			   c.commu_subject, 
@@ -61,4 +61,15 @@
 		 LIMIT #{pageInfo.startRow}, #{pageInfo.listLimit}
 	</select>
 
+	<!-- article view 조회 -->
+	<select id="selectArticle" resultType="java.util.HashMap">
+		SELECT c.commu_subject,
+			   c.commu_content,
+			   m.member_id,
+			   c.commu_readcount,
+			   c.commu_date
+		  FROM community c, member m
+		 WHERE c.commu_idx = #{commu_idx}
+		   AND m.member_idx = c.member_idx
+	</select>
 </mapper>

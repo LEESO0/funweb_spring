@@ -27,7 +27,7 @@ public class CommunityController {
 			@RequestParam(defaultValue = "") String search_keyword,
 			Model model) {
 		
-		int listCount = service.getCommuListCount(search_filter1, search_filter2, search_keyword);
+		int listCount = service.getArticleListCount(search_filter1, search_filter2, search_keyword);
 		int listLimit = 30; // 한 페이지 당 표시할 게시물 목록 갯수
 		int pageLimit = 10; // 한 페이지 당 표시할 페이지 목록 갯수
 		
@@ -50,15 +50,25 @@ public class CommunityController {
 		pageInfo.setStartRow(startRow);
 		pageInfo.setListLimit(listLimit);
 		
-		List<HashMap<String, String>> commuList = service.getCommuList(pageInfo, search_filter1, search_filter2, search_keyword);
+		List<HashMap<String, String>> articleList = service.getArticleList(pageInfo, search_filter1, search_filter2, search_keyword);
 		
-		model.addAttribute("commuList", commuList);
+		model.addAttribute("articleList", articleList);
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("search_filter1", search_filter1);
 		model.addAttribute("search_filter2", search_filter2);
 		model.addAttribute("search_keyword", search_keyword);
 		
-		return "community/community";
+		return "community/article_list";
+	}
+	
+	@RequestMapping(value = "articleView", method = RequestMethod.GET)
+	public String articleView(String commu_idx, String pageNum, Model model) {
+		
+		HashMap<String, String> article = service.getArticle(commu_idx);
+		
+		model.addAttribute("article", article);
+		
+		return "community/article_view";
 	}
 	
 }

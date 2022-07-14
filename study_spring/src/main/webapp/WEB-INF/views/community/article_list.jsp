@@ -49,16 +49,16 @@
 		</div>
 		<div id="commu_list">
 			<table id="commu_list_table" class="table table-hover">
-				<c:forEach items="${commuList }" var="commu">
-					<tr>
+				<c:forEach items="${articleList }" var="article">
+					<tr onclick="location.href='articleView?commu_idx=${article.commu_idx}&pageNum=${pageInfo.pageNum }'">
 						<td class="col-8">
-							<span>${commu.commu_idx }</span><br>
-							<span>${commu.commu_subject }</span>
+							<span>${article.commu_idx }</span><br>
+							<span>${article.commu_subject }</span>
 						</td>
-						<td class="col-2">${commu.commu_like }</td>
+						<td class="col-2">${article.commu_like }</td>
 						<td class="col-2">
-							<span>${commu.member_name }</span><br>
-							<span>${commu.commu_date }</span>
+							<span>${article.member_name }</span><br>
+							<span>${article.commu_date }</span>
 						</td>
 					</tr>
 				</c:forEach>
