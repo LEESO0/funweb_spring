@@ -11,14 +11,15 @@
 <!--------------------->
 <style type="text/css">
 .container{
-	width:1200px; 
+	width:1920px;
+	padding: 0px; 
 	max-width:none!important;
 }
 #select_study_search_create {
-	border: 1px solid black;
 	width: 100%;
 	height: 400px;
 	text-align: center;
+	background-color: #C4D7E0;
 }
 #select_study_search_create > span {
 	line-height: 400px;

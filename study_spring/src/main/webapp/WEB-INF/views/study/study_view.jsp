@@ -12,7 +12,8 @@
 <!--------------------->
 <style type="text/css">
 .container{
-	width:1200px; 
+	width:1920px;
+	padding: 0px; 
 	max-width:none!important;
 }
 </style>
