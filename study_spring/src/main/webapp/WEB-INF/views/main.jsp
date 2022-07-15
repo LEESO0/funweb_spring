@@ -11,20 +11,64 @@
 <!--------------------->
 <style type="text/css">
 .container{
-	width:1920px;
+	width:100%;
 	padding: 0px; 
 	max-width:none!important;
+	height: auto;
+	min-height: 100%;
+	margin: 0 auto -200px;
+}
+footer {
+	width: 100%;
+	height: 200px;
+	clear: both;
+}
+.push {
+	width: 100%;
+	height: 200px;
+	float: left;
+}
+#contatner_inc_footer {
+	width: 100%;
+	height: 100%;
+	background-color: #BBBCBF;
 }
 #select_study_search_create {
 	width: 100%;
 	height: 400px;
 	text-align: center;
 	background-color: #C4D7E0;
+	padding-top: 181px;
 }
-#select_study_search_create > span {
-	line-height: 400px;
-	border: 1px solid black;
+#select_btn {
+	width: 1200px;
+	margin: 0 auto;
+	height: 100%;
+}
+#best_readcount {
+	width: 1200px;
+	margin: 0 auto;
+}
+#recommend_study {
+	width: 1200px;
+	margin: 0 auto;
+}
+/*  */
+.btn-0 {
+	margin: 0 8px;
+	width: 150px;
 	padding: 10px;
+	background-color: #6E85B7;
+	border: 1px solid #6E85B7;
+	color: white;
+	border-radius: 10px;
+	box-shadow: 0px 0px 15px gray;
+}
+.btn-0:hover {
+	background-color: #C4D7E0;
+	border: 1px solid #6E85B7;
+	color: #6E85B7;
+	font-weight: bolder;
 }
 </style>
 </head>
@@ -35,8 +79,10 @@
 		<!------------>
 		
 		<div id="select_study_search_create">
-			<span onclick="location.href='search'">SEARCH</span>
-			<span onclick="location.href='create'">CREATE</span>
+			<div id="select_btn">
+				<button type="button" class="btn-0" onclick="location.href='search'">SEARCH</button>
+				<button type="button" class="btn-0" onclick="location.href='create'">CREATE</button>
+			</div>
 		</div>
 		
 		<div id="best_readcount">
@@ -56,10 +102,11 @@
 				</div>
 			</div>
 		</div>
+		<div class="push"></div>
 		
+	</div>
 		<!-- footer -->
 		<jsp:include page="inc/footer.jsp"/>
 		<!------------>
-	</div>
 </body>
 </html>
