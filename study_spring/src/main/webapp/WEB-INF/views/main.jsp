@@ -18,20 +18,10 @@
 	min-height: 100%;
 	margin: 0 auto -200px;
 }
-footer {
-	width: 100%;
-	height: 200px;
-	clear: both;
-}
 .push {
 	width: 100%;
 	height: 200px;
 	float: left;
-}
-#contatner_inc_footer {
-	width: 100%;
-	height: 100%;
-	background-color: #BBBCBF;
 }
 #select_study_search_create {
 	width: 100%;
