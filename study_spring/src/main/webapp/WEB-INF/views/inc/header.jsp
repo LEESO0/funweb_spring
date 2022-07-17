@@ -6,30 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-/* --- header --- */
-.container-inc {
-	width: 100%;
-	max-width:none!important;
-	background-color: #6E85B7;
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
-#contatner_inc_header {
-	width: 1200px;
-	margin: 0 auto;
-	color: white;
-}
-#contatner_inc_header > .col-1 {
-	text-align: center;
-}
-/* ------------- */
-</style>
 </head>
 <body>
 	<div class="container-inc">
 		<div class="row" id="contatner_inc_header">
-			<div class="col-6 fs-1 align-self-center" onclick="location.href='./'" id="logo">STUDY</div>
+			<div class="col-6 align-self-center" onclick="location.href='./'" id="logo">STUDY</div>
 			<div class="col-2 align-self-center"><input type="text"></div>
 			<div class="col-2 align-self-center" style="padding-left: 60px;" onclick="location.href='community'">COMMUNITY</div>
 			<c:choose>

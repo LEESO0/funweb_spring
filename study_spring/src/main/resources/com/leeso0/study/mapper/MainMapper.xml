@@ -41,4 +41,39 @@
 		 WHERE member_id = #{member_id}
 		   AND member_pass = #{member_pass}
 	</select>
+	
+	<!-- 조회수 높은순 5개 study 조회 -->
+	<select id="selectBestStudyList" resultType="java.util.HashMap">
+		SELECT study_idx,
+			   study_subject,
+			   study_type,
+			   study_time,
+			   study_num_of_people,
+			   study_contact_type,
+			   study_space,
+			   study_date,
+			   study_readcount,
+			   study_status
+		  FROM study
+		 ORDER BY study_readcount DESC
+		 LIMIT 0,5
+	</select>
+	
+	<!-- 로그인 했을 때 추천 study 5개 조회 -->
+	<select id="selectRecommendStudyList" resultType="java.util.HashMap">
+		SELECT s.study_idx,
+			   s.study_subject,
+			   s.study_type,
+			   s.study_time,
+			   s.study_num_of_people,
+			   s.study_contact_type,
+			   s.study_space,
+			   s.study_date,
+			   s.study_readcount,
+			   s.study_status
+		  FROM study s, mem_study_type mst
+		 WHERE study_type IN (mst.study_type1, mst.study_type2, mst.study_type3)
+		   AND mst.member_id = #{member_id}
+		 LIMIT 0,5
+	</select>
 </mapper>

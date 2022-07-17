@@ -46,6 +46,7 @@
 		   </if>
 	</select>
 	
+	<!-- studyList 조회 -->
 	<select id="selectStudyList" resultType="java.util.HashMap">
 		SELECT study_idx,
 			   study_subject,

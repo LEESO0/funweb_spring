@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,58 +11,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <!--------------------->
-<style type="text/css">
-.container{
-	width:100%;
-	padding: 0px; 
-	max-width:none!important;
-	height: auto;
-	min-height: 100%;
-	margin: 0 auto -200px;
-}
-.push {
-	width: 100%;
-	height: 200px;
-	float: left;
-}
-#select_study_search_create {
-	width: 100%;
-	height: 400px;
-	text-align: center;
-	background-color: #C4D7E0;
-	padding-top: 181px;
-}
-#select_btn {
-	width: 1200px;
-	margin: 0 auto;
-	height: 100%;
-}
-#best_readcount {
-	width: 1200px;
-	margin: 0 auto;
-}
-#recommend_study {
-	width: 1200px;
-	margin: 0 auto;
-}
-/*  */
-.btn-0 {
-	margin: 0 8px;
-	width: 150px;
-	padding: 10px;
-	background-color: #6E85B7;
-	border: 1px solid #6E85B7;
-	color: white;
-	border-radius: 10px;
-	box-shadow: 0px 0px 15px gray;
-}
-.btn-0:hover {
-	background-color: #C4D7E0;
-	border: 1px solid #6E85B7;
-	color: #6E85B7;
-	font-weight: bolder;
-}
-</style>
+<!-- css -->
+<link rel="stylesheet" href="${path }/resources/css/default.css">
+<!--------->
 </head>
 <body>
 	<div class="container">
@@ -75,25 +28,42 @@
 			</div>
 		</div>
 		
-		<div id="best_readcount">
-			<h3>조회수 높은 순(6개)</h3>
-			<div id="study_list_best_readcount">
-				<div>
-					
-				</div>
+		<div id="study_list_area">
+			<div class="study_list_area_subject">BEST</div>
+			<div id="best_readcount">
+				<c:forEach items="${bestStudyList }" var="study">
+					<div class="study_card" onclick="location.href='studyView?study_idx=${study.study_idx}&pageNum=${pageInfo.pageNum }'">
+						<div>${study.study_subject } / ${study.study_status }</div>
+						<div>
+							<span>${study.study_type }</span>
+							<span>${study.study_time }</span>
+							<span>${study.study_num_of_people }</span>
+							<span>${study.study_contact_type }</span>
+							<span>${study.study_space }</span>
+						</div>
+					</div>
+				</c:forEach>
 			</div>
-		</div>
-		
-		<div id="recommend_study">
-			<h3>추천(3개)</h3>
-			<div id="study_list_best_readcount">
-				<div>
-					
-				</div>
+			
+			<hr>
+			
+			<div class="study_list_area_subject">RECOMMEND</div>
+			<div id="recommend_study">
+				<c:forEach items="${recommendStudyList }" var="study">
+					<div class="study_card" onclick="location.href='studyView?study_idx=${study.study_idx}&pageNum=${pageInfo.pageNum }'">
+						<div>${study.study_subject } / ${study.study_status }</div>
+						<div>
+							<span>${study.study_type }</span>
+							<span>${study.study_time }</span>
+							<span>${study.study_num_of_people }</span>
+							<span>${study.study_contact_type }</span>
+							<span>${study.study_space }</span>
+						</div>
+					</div>
+				</c:forEach>
 			</div>
 		</div>
 		<div class="push"></div>
-		
 	</div>
 		<!-- footer -->
 		<jsp:include page="inc/footer.jsp"/>
