@@ -17,6 +17,7 @@
 }
 #logo {
 	font-size: 45px;
+	font-weight: bolder;
 }
 /* ------------- */
 /* --- footer --- */
@@ -42,6 +43,7 @@ footer {
 	height: auto;
 	min-height: 100%;
 	margin: 0 auto -200px;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 /* ----------------- */
 
