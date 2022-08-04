@@ -5,6 +5,7 @@ public class StudyVO {
 	private String study_idx;
 	private String member_idx;
 	private String study_subject;
+	private String study_intro;
 	private String study_content;
 	private String study_type;
 	private String study_time;
@@ -12,8 +13,8 @@ public class StudyVO {
 	private String study_contact_type;
 	private String study_space;
 	private String study_date;
-	private String study_status;
 	private String study_readcount;
+	private String study_status;
 	
 	public String getStudy_idx() {
 		return study_idx;
@@ -32,6 +33,12 @@ public class StudyVO {
 	}
 	public void setStudy_subject(String study_subject) {
 		this.study_subject = study_subject;
+	}
+	public String getStudy_intro() {
+		return study_intro;
+	}
+	public void setStudy_intro(String study_intro) {
+		this.study_intro = study_intro;
 	}
 	public String getStudy_content() {
 		return study_content;

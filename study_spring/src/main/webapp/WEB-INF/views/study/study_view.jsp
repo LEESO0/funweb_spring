@@ -79,6 +79,7 @@
 			<c:choose>
 				<c:when test="${study.member_id eq sessionScope.sId }">
 					<input type="button" value="수정" onclick="location.href='modifyStudy?study_idx=${param.study_idx }&pageNum=${pageNum }'">
+					<input type="button" value="삭제" onclick="location.href='deleteStudy?study_idx=${param.study_idx }'">
 				</c:when>
 				<c:when test="${study.member_id ne sessionScope.sId }">
 					<input type="button" value="신청" onclick="location.href='register?study_idx=${param.study_idx }&pageNum=${pageNum }'">

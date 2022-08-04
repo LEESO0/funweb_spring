@@ -52,7 +52,7 @@ public class StudyController {
 		return "redirect:/";
 	}
 	
-	// study create 뷰페이지 이동
+	// study list 조회 및 검색 뷰페이지 이동
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String saerch(@ModelAttribute StudyVO study, 
 			@RequestParam(defaultValue = "") String search_keyword,
@@ -166,5 +166,17 @@ public class StudyController {
 		model.addAttribute("path", "studyView?study_idx=" + study.getStudy_idx() + "&pageNum=" + pageNum);
 		return "success_msg_path";
 		
+	}
+	
+	@RequestMapping(value = "deleteStudy", method = RequestMethod.GET)
+	public String deleteStudy(String member_pass, HttpSession session, Model model) {
+		
+		String member_id = session.getAttribute("sId").toString();
+		if(member_id == null) {
+			model.addAttribute("msg", "비회원 상태 입니다");
+			return "fail_back";
+		}
+		
+		return "";
 	}
 }

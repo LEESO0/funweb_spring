@@ -93,6 +93,9 @@
 				<div id="study_subject">
 					제목 <input type="text" name="study_subject" value="${study.study_subject }">
 				</div>
+				<div id="study_intro">
+					소개 <input type="text" name="study_intro" value="${study.study_intro }">
+				</div>
 				내용 <textarea rows="" cols="" name="study_content">${study.study_content }</textarea>
 				
 				<div id="submit_study">

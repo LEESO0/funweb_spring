@@ -25,8 +25,11 @@ public class HomeController {
 	public String home(Locale locale, HttpSession session, Model model) {
 		
 		List<HashMap<String, String>> bestStudyList = service.getBestStudyList();
-		String member_id = session.getAttribute("sId").toString();
-		if(member_id != null) {
+		
+		System.out.println("session : " + session.getAttribute("sId"));
+		
+		if(session.getAttribute("sId") != null) {
+			String member_id = session.getAttribute("sId").toString();
 			List<HashMap<String, String>> recommendStudyList = service.getRecommendStudyList(member_id);
 			model.addAttribute("recommendStudyList", recommendStudyList);
 		}

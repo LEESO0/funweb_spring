@@ -12,6 +12,7 @@
 				    FROM member
 				   WHERE member_id = #{member_id})
 				,#{study.study_subject}
+				,#{study.study_intro}
 				,#{study.study_content}
 				,#{study.study_type}
 				,#{study.study_time}
@@ -50,6 +51,7 @@
 	<select id="selectStudyList" resultType="java.util.HashMap">
 		SELECT study_idx,
 			   study_subject,
+			   study_intro,
 			   study_type,
 			   study_time,
 			   study_num_of_people,
@@ -124,13 +126,14 @@
 	<select id="selectFilteredStudyList" resultType="java.util.HashMap">
 		SELECT study_idx,
 			   study_subject,
+			   study_intro,
 			   study_type,
 			   study_time,
 			   study_num_of_people,
 			   study_contact_type,
 			   study_space,
 			   study_date,
-			   study_readcount
+			   study_readcount,
 			   study_status
 		  FROM study
 		 WHERE 1=1
@@ -189,6 +192,7 @@
 			   m.member_name,
 			   m.member_id,
 			   s.study_subject,
+			   s.study_intro,
 			   s.study_content,
 			   s.study_date,
 			   s.study_readcount,
@@ -229,6 +233,7 @@
 			   ,study_contact_type = #{study.study_contact_type}
 			   ,study_space = #{study.study_space}
 			   ,study_subject = #{study.study_subject}
+			   ,study_intro = #{study.study_intro}
 			   ,study_content = #{study.study_content}
 		 WHERE study_idx = #{study.study_idx}
 		   AND member_idx = (SELECT member_idx

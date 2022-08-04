@@ -46,6 +46,7 @@
 	<select id="selectBestStudyList" resultType="java.util.HashMap">
 		SELECT study_idx,
 			   study_subject,
+			   study_intro,
 			   study_type,
 			   study_time,
 			   study_num_of_people,
@@ -63,6 +64,7 @@
 	<select id="selectRecommendStudyList" resultType="java.util.HashMap">
 		SELECT s.study_idx,
 			   s.study_subject,
+			   s.study_intro,
 			   s.study_type,
 			   s.study_time,
 			   s.study_num_of_people,
