@@ -15,7 +15,7 @@
 			<div class="col-2 align-self-center" style="padding-left: 60px;" onclick="location.href='community'">COMMUNITY</div>
 			<c:choose>
 				<c:when test="${sessionScope.sId eq null }">
-					<div class="col-1 align-self-center" onclick="location.href='loginHow'">LOGIN</div>
+					<div class="col-1 align-self-center" onclick="location.href='login'">LOGIN</div>
 					<div class="col-1 align-self-center" onclick="location.href='join'">JOIN</div>	
 				</c:when>
 				<c:when test="${sessionScope.sId ne null }">

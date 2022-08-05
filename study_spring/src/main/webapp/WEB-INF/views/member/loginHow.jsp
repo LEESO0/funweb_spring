@@ -28,13 +28,17 @@
 	padding: 0px; 
 	max-width:none!important;
 }
+.login_button {
+	width: 400px;
+	margin: 40px auto;
+	border: 1px solid black;
+}
+
 </style>
 </head>
 <body>
 	<div class="container">
-		<button onclick="location.href='#'">카카오 로그인</button>
-		<button onclick="location.href='#'">네이버 로그인</button>
-		<button onclick="location.href='login'">로그인</button>
+		
 	</div>
 </body>
 </html>

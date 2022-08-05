@@ -34,13 +34,14 @@ public class StudyService {
 	
 	// studyList listCount 조회 (정렬, 필터)
 	public int getFilteredStudyListCount(StudyVO study, String search_keyword, String search_filter1, String search_filter2) {
+		search_keyword = "%" + search_keyword + "%";
 		return mapper.selectFilteredStudyListCount(study, search_keyword, search_filter1, search_filter2);
 	}
 
 	// studyList 조회 (정렬, 필터)
 	public ArrayList<HashMap<String, String>> getFilteredStudyList(StudyVO study, PageInfo pageInfo, String search_keyword,
 			String search_filter1, String search_filter2) {
-		search_keyword = '%' + search_keyword + '%';
+		search_keyword = "%" + search_keyword + "%";
 		return mapper.selectFilteredStudyList(study, pageInfo, search_keyword, search_filter1, search_filter2);
 	}
 	

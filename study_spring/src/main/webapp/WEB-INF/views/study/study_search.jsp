@@ -38,6 +38,9 @@ $(function() {
 	$("#search_reset_icon").on("click", function() {
 		$("#search_reset").click();
 	});
+	$("#filter_submit_icon").on("click", function() {
+		$("#study_search_filter input[type='submit']").click();
+	});
 });
 
 </script>
@@ -105,7 +108,7 @@ $(function() {
 						</select>
 						<input type="text" name="search_keyword" value="${search_keyword }">
 						<input type="submit" value="검색" style="display: none;">
-						<span class="material-symbols-outlined search_submit_icon">
+						<span class="material-symbols-outlined search_submit_icon" id="filter_submit_icon">
 							search
 						</span>
 					</div>
@@ -145,17 +148,24 @@ $(function() {
 			<div class ="paging">
 				<c:choose>
 					<c:when test="${pageInfo.pageNum > 1 }">
-						<input type="button" value=" < " onclick="location.href='search?pageNum=${pageInfo.pageNum - 1 }'">
+						<button type="button" onclick="location.href='search?pageNum=${pageInfo.pageNum - 1 }'">
+							<span class="material-symbols-outlined page_icon">
+								arrow_back_ios
+							</span>
+						</button>
 					</c:when>
 					<c:otherwise>
-						<input type="button" value=" < ">
+						<button type="button">
+							<span class="material-symbols-outlined page_icon">
+								arrow_back_ios
+							</span>
+						</button>
 					</c:otherwise>
 				</c:choose>
-		
 				<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">
 					<c:choose>
 					<c:when test="${pageInfo.pageNum eq i }">
-						${i }
+						<span class="page_num">${i }</span>
 					</c:when>
 					<c:otherwise>
 						<a href="search?pageNum=${i }">${i }</a>
@@ -164,10 +174,18 @@ $(function() {
 				</c:forEach>
 				<c:choose>
 					<c:when test="${pageInfo.pageNum < pageInfo.maxPage }">
-						<input type="button" value=" > " onclick="location.href='search?pageNum=${pageInfo.pageNum + 1 }'">
+						<button type="button" onclick="location.href='search?pageNum=${pageInfo.pageNum + 1 }'">
+							<span class="material-symbols-outlined page_icon">
+								arrow_forward_ios
+							</span>
+						</button>
 					</c:when>
 					<c:otherwise>
-						<input type="button" value=" > ">
+						<button type="button">
+							<span class="material-symbols-outlined page_icon">
+								arrow_forward_ios
+							</span>
+						</button>
 					</c:otherwise>
 				</c:choose>
 			</div>

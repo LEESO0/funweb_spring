@@ -28,13 +28,20 @@
 	padding: 0px; 
 	max-width:none!important;
 }
+.join_button {
+	width: 400px;
+	margin: 40px auto;
+	border: 1px solid black;
+}
 </style>
 </head>
 <body>
 	<div class="container">
-		<button onclick="location.href='#'">카카오 회원가입</button>
-		<button onclick="location.href='#'">네이버 회원가입</button>
-		<button onclick="location.href='join'">회원가입</button>
+		<div class="join_button">
+			<button onclick="location.href='#'">카카오 회원가입</button>
+			<button onclick="location.href='#'">네이버 회원가입</button>
+			<button onclick="location.href='join'">회원가입</button>
+		</div>
 	</div>
 </body>
 </html>

@@ -35,6 +35,10 @@ footer {
 
 /* ========================================================================== */
 
+
+
+/* ========================================================================== */
+
 /* --- container --- */
 .container{
 	width:100%;
@@ -61,15 +65,21 @@ footer {
 .paging {
 	text-align: center;
 }
-.paging input[type="button"] {
+.paging button {
 	border: none;
 	background-color: white;
+}
+.page_num {
+	font-size: 20px;
+	
+}
+.page_icon {
+	font-size: 15px;
 }
 /* -------------- */
 
 /* ========================================================================== */
 
-/* --- main --- */
 .push {
 	width: 100%;
 	height: 100px;

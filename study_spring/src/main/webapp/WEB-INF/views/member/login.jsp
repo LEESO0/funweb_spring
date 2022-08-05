@@ -23,17 +23,55 @@
 <script src="${path}/resources/js/jquery-3.6.0.js"></script>
 <!------------------>
 <style type="text/css">
+body {
+	background-color: #C4D7E0;
+}
 .container{
 	width:1920px;
 	padding: 0px; 
 	max-width:none!important;
 }
+#login_member {
+	width: 400px;
+	margin: 40px auto;
+	padding: 50px;
+	border: 0px;
+	background-color: white;
+	border-radius: 10px;
+}
+#login_member ul {
+	padding: 0px;
+	margin: 0px;
+}
 #login_member ul li {
 	list-style-type: none;
-	margin: 5px;
+	margin-top: 5px;	
 }
-#login_member ul li label {
-	width: 150px;
+#login_member ul li input[type='text'], input[type='password'] {
+	width: 100%;
+	height: 40px;
+	margin-bottom: 3px;
+}
+#login_member ul li input[type='submit'] {
+	width: 100%;
+	height: 50px;
+	background-color: black;
+	color: white;
+	border-radius: 5px;
+}
+#login_api {
+	text-align: center;
+}
+img {
+	width: 100%;
+	margin: 5px 0px;
+}
+#login_menu {
+	width: 100%;
+	margin: 2px auto;
+	text-align: right;
+	font-size: 13px;
+	color: gray;
 }
 </style>
 </head>
@@ -44,18 +82,25 @@
 			<form action="login" method="post">
 				<ul>
 					<li>
-						<label>ID</label>
-						<input type="text" name="member_id">
+						<input type="text" name="member_id" placeholder="아이디">
 					</li>
 					<li>
-						<label>PASSWORD</label>
-						<input type="password" name="member_pass">
+						<input type="password" name="member_pass" placeholder="비밀번호">
 					</li>
 					<li>
 						<input type="submit" value="LOGIN">
 					</li>
 				</ul>
 			</form>
+			<div id="login_menu">
+				<span>아이디 찾기</span>
+				<span>비밀번호 변경하기</span>
+				<span>회원가입</span>
+			</div>
+			<div id="login_api">
+				<img alt="kakao_login" src="${path }/resources/img/kakao_login.png">
+				<img alt="naver_login" src="${path }/resources/img/naver_login.png">
+			</div>
 		</div>
 	</div>
 	
