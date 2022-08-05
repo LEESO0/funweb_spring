@@ -23,51 +23,109 @@
 <script src="${path}/resources/js/jquery-3.6.0.js"></script>
 <!------------------>
 <style type="text/css">
+body {
+	background-color: #C4D7E0;
+}
 .container{
 	width:1920px;
 	padding: 0px; 
 	max-width:none!important;
+}
+#insert_member_info {
+	width: 550px;
+	margin: 40px auto;
+	padding: 35px 50px;
+	border: 0px;
+	background-color: white;
+	border-radius: 10px;
+}
+#insert_member_info ul {
+	padding: 0px;
 }
 #insert_member_info ul li {
 	list-style-type: none;
 	margin: 5px;
 }
 #insert_member_info ul li label {
-	width: 150px;
+	width: 200px;
+	font-size: 20px;
+}
+.birth_input {
+	width: 166px;
+	margin-bottom: 15px;
+	height: 50px;
+}
+.birth_select {
+	width: 100px;
+	height: 50px;
+}
+.join_input {
+	width: 100%;
+	height: 50px;
+	margin-bottom: 15px;
+}
+#join_title {
+	font-size: 40px;
+	text-align: center;
+}
+.gender_select {
+	width: 100%;
+	height: 50px;
+	margin-bottom: 15px;
+}
+#check_study_type {
+	width: 100%;
+	margin-bottom: 20px;
+}
+#check_study_type input[type='checkbox'] {
+	margin-right: 3px;
+}
+#check_study_type .check_study_type_label {
+	margin-right: 19px;
+}
+#insert_member_info ul li input[type='submit'] {
+	width: 100%;
+	height: 50px;
+	background-color: black;
+	color: white;
+	border-radius: 5px;
 }
 </style>
 </head>
 <body>
 	<div class="container">
-		
 		<div id="insert_member_info">
+			<div id="join_title">JOIN</div>
 			<form action="join" method="post">
 				<ul>
 					<li>
-						<label>ID</label>
-						<input type="text" name="member_id">
+						<label>아이디</label><br>
+						<input type="text" name="member_id" placeholder="아이디" class="join_input">
 					</li>
 					<li>
-						<label>PASSWORD</label> 
-						<input type="password" name="member_pass">
+						<label>비밀번호</label><br>
+						<input type="password" name="member_pass" placeholder="비밀번호" class="join_input">
 					</li>
 					<li>
-						<label>CHECK PASSWORD</label>
-						<input type="password">
+						<label>비밀번호 확인</label><br>
+						<input type="password" placeholder="비밀번호 확인" class="join_input">
 					</li>
 					<li>
-						<label>NAME</label>
-						<input type="text" name="member_name">
+						<label>이름</label><br>
+						<input type="text" name="member_name" placeholder="이름" class="join_input">
 					</li>
 					<li>
-						<label>GENDER</label>
-						<input type="radio" name="member_gender" value="남">남
-						<input type="radio" name="member_gender" value="여">여
+						<label>성별</label><br>
+						<select name="member_gender" class="gender_select">
+							<option>성별</option>
+							<option value="남">남</option>
+							<option value="여">여</option>
+						</select>
 					</li>
 					<li>
-						<label>BIRTH</label>
-						<input type="text" name="member_birth_year" placeholder="년도(4자리)" maxlength="4">
-						<select name="member_birth_month">
+						<label>생년월일</label><br>
+						<input type="text" name="member_birth_year" placeholder="년도(4자리)" maxlength="4" class="birth_input">
+						<select name="member_birth_month" class="birth_select">
 							<option>월</option>
 							<c:forEach begin="1" end="12" var="i">
 								<c:choose>
@@ -80,24 +138,26 @@
 								</c:choose>
 							</c:forEach>
 						</select>
-						<input type="text" name="member_birth_day" placeholder="일" maxlength="2">
+						<input type="text" name="member_birth_day" placeholder="일" maxlength="2" class="birth_input">
 					</li>
 					<li>
-						<label>EMAIL</label>
-						<input type="text">
+						<label>이메일</label><br>
+						<input type="text" placeholder="이메일" class="join_input">
 					</li>
 					<li>
-						<label>SPACE</label>
-						<input type="text">
+						<label>지역</label><br>
+						<input type="text" placeholder="지역" class="join_input">
 					</li>
 					<li>
-						<label>STUDY TYPE</label>
-						<input type="checkbox" name="study_type" value="수능">수능
-						<input type="checkbox" name="study_type" value="공무원">공무원
-						<input type="checkbox" name="study_type" value="면접">면접
-						<input type="checkbox" name="study_type" value="자격증">자격증
-						<input type="checkbox" name="study_type" value="어학">어학
-						<input type="checkbox" name="study_type" value="기타">기타
+						<label>스터디 분야</label><br>
+						<div id="check_study_type">
+							<input type="checkbox" name="study_type" value="수능"><span class="check_study_type_label">수능</span>
+							<input type="checkbox" name="study_type" value="공무원"><span class="check_study_type_label">공무원</span>
+							<input type="checkbox" name="study_type" value="면접"><span class="check_study_type_label">면접</span>
+							<input type="checkbox" name="study_type" value="자격증"><span class="check_study_type_label">자격증</span>
+							<input type="checkbox" name="study_type" value="어학"><span class="check_study_type_label">어학</span>
+							<input type="checkbox" name="study_type" value="기타"><span class="check_study_type_label">기타</span>
+						</div>
 					</li>
 					<li><input type="submit" value="JOIN"></li>
 				</ul>

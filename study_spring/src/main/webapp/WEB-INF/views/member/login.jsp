@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>join♩</title>
+<title>login♩</title>
 <!-- bootstrap 5.2.0 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
@@ -73,12 +73,16 @@ img {
 	font-size: 13px;
 	color: gray;
 }
+#login_title {
+	font-size: 40px;
+	text-align: center;
+}
 </style>
 </head>
 <body>
-	
 	<div class="container">
 		<div id="login_member">
+			<div id="login_title">LOGIN</div>
 			<form action="login" method="post">
 				<ul>
 					<li>
@@ -93,8 +97,8 @@ img {
 				</ul>
 			</form>
 			<div id="login_menu">
-				<span>아이디 찾기</span>
-				<span>비밀번호 변경하기</span>
+				<span>아이디 찾기</span> |
+				<span>비밀번호 변경하기</span> |
 				<span>회원가입</span>
 			</div>
 			<div id="login_api">
