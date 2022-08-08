@@ -343,7 +343,7 @@ footer {
 /* ----------------------- */
 
 /* --- filter&keyword --- */
-#search_keyword_filter {
+.search_keyword_filter {
 	width: 1200px;
 	height: 40px;
 }
@@ -361,7 +361,21 @@ footer {
 	height: 100%;
 	margin-right: -5px;
 }
-#study_search_filter input[type="text"] {
+#commu_filter1 {
+	vertical-align: middle;
+	width: 150px;
+	height: 100%;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	margin-right: -7px;
+}
+#commu_filter2 {
+	vertical-align: middle;
+	width: 150px;
+	height: 100%;
+	margin-right: -6px;
+}
+.study_search_filter input[type="text"] {
 	vertical-align: middle;
 	width: 350px;
 	height: 100%;
@@ -370,7 +384,7 @@ footer {
 	border-radius: 0px;
 	margin-right: -4px;
 }
-#study_search_filter .search_submit_icon {
+.study_search_filter .search_submit_icon {
 	vertical-align: middle;
 	width: 40px;
 	height: 100%;
@@ -378,4 +392,68 @@ footer {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
+.commu_search_filter input[type="text"] {
+	vertical-align: middle;
+	width: 350px;
+	height: 100%;
+	margin-right: -7px;
+	border: 1px solid;
+	border-radius: 0px;
+}
+.commu_search_filter .search_submit_icon {
+	vertical-align: middle;
+	width: 40px;
+	height: 100%;
+	border: 1px solid black;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+/* ------- article_list ------- */
+#commu_create {
+	float: right;
+	width: 80px;
+	height: 100%;
+}
+#commu_create input[type='button'] {
+	width: 100%;
+	height: 100%;
+	border: 0px;
+	border-radius: 10px;
+	background-color: #4E68A0;
+	color: white;
+	box-shadow: 0px 0px 10px black;
+}
+
+#commu_list {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+#commu_list_table {
+	width: 100%;
+}
+#commu_list_table tr th, td {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#commu_list_table tr:first-child {
+	text-align: center;
+	border-top: 1px solid #758CBD;
+	border-bottom: 1px solid #758CBD;
+	color: #4E68A0;
+	background-color: #CDD8EE;
+}
+#commu_list_table tr:not(:last-of-type) {
+	border-bottom: 1px dotted gray;
+}
+#commu_list_table tr:last-of-type {
+	border-bottom: 1px solid gray;
+}
+#commu_list_table .td_center {
+	text-align: center;
+}
+#commu_list_table tr:hover {
+	background-color: lightgray;
+}
+/* ---------------------------- */
 /* ========================================================================== */

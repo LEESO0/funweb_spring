@@ -11,8 +11,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <!--------------------->
-<!-- icon -->
+<!----- icon ------>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<!----------------->
 <!------ css ------>
 <link rel="stylesheet" href="${path }/resources/css/default.css">
 <!----------------->
@@ -39,7 +40,7 @@ $(function() {
 		$("#search_reset").click();
 	});
 	$("#filter_submit_icon").on("click", function() {
-		$("#study_search_filter input[type='submit']").click();
+		$(".study_search_filter input[type='submit']").click();
 	});
 });
 
@@ -91,13 +92,13 @@ $(function() {
 			<div style="clear: both;"></div>
 			
 		<div class="container_1200_area">
-			<div id="study_search_filter">
+			<div class="study_search_filter">
 				<form action="search" method="get">
 					<input type="hidden" name="study_type" value="${study.study_type }">
 					<input type="hidden" name="study_time" value="${study.study_time }">
 					<input type="hidden" name="study_num_of_people" value="${study.study_num_of_people }">
 					<input type="hidden" name="study_contact_type" value="${study.study_contact_type }">
-					<div id="search_keyword_filter">
+					<div class="search_keyword_filter">
 						<select name="search_filter1" id="filter1">
 							<option value="search_ing" <c:if test="${search_filter1 eq 'search_ing' }"> selected </c:if>>모집중</option>
 							<option value="search_done" <c:if test="${search_filter1 eq 'search_done' }"> selected </c:if>>모집완료</option>

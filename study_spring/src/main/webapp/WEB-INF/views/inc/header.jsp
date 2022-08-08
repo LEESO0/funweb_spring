@@ -10,8 +10,8 @@
 <body>
 	<div class="container-inc">
 		<div class="row" id="contatner_inc_header">
-			<div class="col-6 align-self-center" onclick="location.href='./'" id="logo">STUDY</div>
-			<div class="col-2 align-self-center"><input type="text"></div>
+			<div class="col-8 align-self-center" onclick="location.href='./'" id="logo">STUDY</div>
+<!-- 			<div class="col-2 align-self-center"><input type="text"></div> -->
 			<div class="col-2 align-self-center" style="padding-left: 60px;" onclick="location.href='community'">COMMUNITY</div>
 			<c:choose>
 				<c:when test="${sessionScope.sId eq null }">
