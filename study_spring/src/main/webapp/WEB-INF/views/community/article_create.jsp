@@ -31,10 +31,11 @@
 </style>
 </head>
 <body>
+	<!-- header -->
+	<jsp:include page="../inc/header.jsp"/>
+	<!------------>
+
 	<div class="container">
-		<!-- header -->
-		<jsp:include page="../inc/header.jsp"/>
-		<!------------>
 		
 		<div id="commu_create_form">
 			<form action="">
@@ -50,9 +51,9 @@
 			</form>
 		</div>
 		
-		<!-- footer -->
-		<jsp:include page="../inc/footer.jsp"/>
-		<!------------>
 	</div>
+	<!-- footer -->
+	<jsp:include page="../inc/footer.jsp"/>
+	<!------------>
 </body>
 </html>

@@ -25,7 +25,8 @@
 <style type="text/css">
 .container{
 	width:1920px;
-	padding: 0px; 
+	height:1000px;
+	padding: 0px;
 	max-width:none!important;
 }
 .commu_list_ul {
@@ -34,42 +35,68 @@
 </style>
 </head>
 <body>
-	<div class="container">
-		<!-- header -->
-		<jsp:include page="../inc/header.jsp"/>
-		<!------------>
-		
+	<!-- header -->
+	<jsp:include page="../inc/header.jsp"/>
+	<!------------>
+	<div class="container_1200_area">
 		<div id="article_detail_area">
-			<div id="commu_subject">
-				${article.commu_subject }
+			<div class="subject">${article.commu_subject }</div>
+			<div id="commu_top">
+				<span class="writer">이미지 ${article.member_id }</span>
+				<span class="write_date">${article.commu_date }</span>
+				<span class="readcount">${article.commu_readcount }</span>
+				<span class="likecount">${article.commu_like }like</span>
 			</div>
 			<div id="commu_content">
 				${article.commu_content }
 			</div>
-			<div id="member_id">
-				${article.member_id }
+			
+			<div id="mngBtn_article">
+				<c:choose>
+					<c:when test="${article.member_id eq sessionScope.sId }">
+						<input type="button" value="수정" onclick="location.href='modifyArticle?commu_idx=${param.commu_idx }&pageNum=${pageNum }'">
+						<input type="button" value="삭제" onclick="location.href='deleteArticle?commu_idx=${param.commu_idx }'">
+					</c:when>
+					<c:when test="${article.member_id ne sessionScope.sId }">
+					</c:when>
+				</c:choose>
 			</div>
-			<div id="commu_readcount">
-				${article.commu_readcount } 명
-			</div>
-			<div id="commu_date">
-				${article.commu_date }
+			
+			<div id="comment_area">
+				<h3>COMMENT</h3>
+				<div class="insert_comment">
+					<textarea id="comment_content"></textarea>
+					<input type="button" id="submit_comment" value="작성">
+					<!-- textarea value값, article_idx, member_id(session) ajax로 넘겨서 처리 (서블릿주소: insertComment) -->
+				</div>
+				
+				<div class="comment_list">
+					<!-- 반복 -->
+					<div class="comment_left">
+						이미지
+					</div>
+					<div class="comment_right">
+						<div class="comment_writer">
+							누ㅜㄱ
+						</div>
+						<div class="comment_date">
+							2022.02.02
+						</div>
+						<div class="comment_content">
+							뭐시기뭐ㅣ기뭐시구머시
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		
-		<div id="register_article">
-			<c:choose>
-				<c:when test="${article.member_id eq sessionScope.sId }">
-					<input type="button" value="수정" onclick="location.href='modifyArticle?commu_idx=${param.commu_idx }&pageNum=${pageNum }'">
-				</c:when>
-				<c:when test="${article.member_id ne sessionScope.sId }">
-				</c:when>
-			</c:choose>
-		</div>
 		
-		<!-- footer -->
-		<jsp:include page="../inc/footer.jsp"/>
-		<!------------>
 	</div>
+	
+	<div class="push"></div>
+	
+	<!-- footer -->
+	<jsp:include page="../inc/footer.jsp"/>
+	<!------------>
 </body>
 </html>

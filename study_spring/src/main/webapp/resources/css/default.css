@@ -456,4 +456,114 @@ footer {
 	background-color: lightgray;
 }
 /* ---------------------------- */
+
+/* ------ article_view -------- */
+#article_detail_area {
+	width: 80%;
+	margin: 3px auto;
+}
+#commu_top {
+	width: 100%;
+	display: flex;
+	margin-bottom: 20px;
+}
+#article_detail_area .subject {
+	font-size: 40px;
+	font-weight: bolder;
+}
+#commu_top .writer {
+	width: 80%;
+}
+#commu_top .write_date {
+	width: 10%;
+}
+#commu_top .readcount, .likecount {
+	width: 5%;
+}
+#commu_content {
+	border: 1px solid lightgray;
+	border-radius: 10px;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+#mngBtn_article {
+	height: 50px;
+	float: right;
+}
+#mngBtn_article input[type='button']:first-of-type {
+	border: 0px;
+	border-radius: 5px;
+	width:55px;
+	height: 35px;
+	background-color: #758CBD;
+	color: white;
+}
+#mngBtn_article input[type='button']:last-of-type {
+	border: 0px;
+	border-radius: 5px;
+	width:55px;
+	height: 35px;
+	background-color: black;
+	color: white;
+}
+#comment_area {
+	clear: both;
+	width: 100%;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+#comment_area h3 {
+	padding: 10px;
+	font-weight: bold;
+}
+.insert_comment {
+	padding-bottom: 10px;
+	height: 100px;
+	display: flex;
+}
+.insert_comment textarea {
+	width: 85%;
+	height: 100%;
+	margin-right: -1px;
+	border: 1px solid #758CBD;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.insert_comment input[type='button'] {
+	width: 15%;
+	height: 100%;
+	border: 1px solid #758CBD;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background-color: #758CBD;
+	color: white;
+}
+.comment_list {
+	padding: 10px;
+	display: flex;
+}
+.comment_list .comment_left {
+	width: 10%;
+	padding: 5px;
+	border-bottom: 1px solid lightgray;	
+}
+.comment_list .comment_right {
+	width: 90%;
+	padding: 5px;
+	border-bottom: 1px solid lightgray;
+}
+.comment_list .comment_right .comment_writer {
+	font-size: 18px;
+	font-weight: bold;
+}
+.comment_list .comment_right .comment_date {
+	font-size: 15px;
+	color: gray;
+}
+
+/* ---------------------------- */
 /* ========================================================================== */
