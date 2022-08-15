@@ -26,8 +26,6 @@ public class HomeController {
 		
 		List<HashMap<String, String>> bestStudyList = service.getBestStudyList();
 		
-		System.out.println("session : " + session.getAttribute("sId"));
-		
 		if(session.getAttribute("sId") != null) {
 			String member_id = session.getAttribute("sId").toString();
 			List<HashMap<String, String>> recommendStudyList = service.getRecommendStudyList(member_id);

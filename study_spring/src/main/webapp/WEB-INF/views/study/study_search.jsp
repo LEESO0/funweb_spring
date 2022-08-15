@@ -54,7 +54,7 @@ $(function() {
 		
 		<div id="select_study_condition">
 			<form action="search" method="get">
-				<div id="study_type">
+				<div class="study_type">
 					<input type="radio" name="study_type" id="study_type1" value="수능" <c:if test="${study.study_type eq '수능' }"> checked </c:if>><label for="study_type1">수능</label>
 					<input type="radio" name="study_type" id="study_type2" value="공무원" <c:if test="${study.study_type eq '공무원' }"> checked </c:if>> <label for="study_type2">공무원</label>
 					<input type="radio" name="study_type" id="study_type3" value="면접" <c:if test="${study.study_type eq '면접' }"> checked </c:if>> <label for="study_type3">면접</label>
@@ -62,7 +62,7 @@ $(function() {
 					<input type="radio" name="study_type" id="study_type5" value="어학" <c:if test="${study.study_type eq '어학' }"> checked </c:if>> <label for="study_type5">어학</label>
 					<input type="radio" name="study_type" id="study_type6" value="기타" <c:if test="${study.study_type eq '기타' }"> checked </c:if>> <label for="study_type6">기타</label>
 				</div>
-				<div id="study_time">
+				<div class="study_time">
 					<input type="radio" name="study_time" id="study_time1" value="평일" <c:if test="${study.study_time eq '평일' }"> checked </c:if>> <label for="study_time1">평일</label>
 					<input type="radio" name="study_time" id="study_time2" value="주말" <c:if test="${study.study_time eq '주말' }"> checked </c:if>> <label for="study_time2">주말</label>
 				</div>
@@ -70,7 +70,7 @@ $(function() {
 <!-- 					모집인원 -->
 <!-- 					<input type="text" name="study_num_of_people"> 명 -->
 <!-- 				</div> -->
-				<div id="study_contact_type">
+				<div class="study_contact_type">
 					<input type="radio" id="contact_type1" name="study_contact_type" value="대면" <c:if test="${study.study_contact_type eq '대면' }"> checked </c:if>> <label for="contact_type1">대면</label>
 					<input type="radio" id="contact_type2" name="study_contact_type" value="비대면" <c:if test="${study.study_contact_type eq '비대면' }"> checked </c:if>> <label for="contact_type2">비대면</label>
 				</div>

@@ -131,7 +131,6 @@ footer {
 	margin: 20px;
 	padding: 10px;
 	border-radius: 10px;
-/* 	color: white; */
 	background-color: #C2CEE7;
 	box-shadow: 2px 2px 10px #4E68A0;
 }
@@ -168,7 +167,6 @@ footer {
 	margin: 2px;
 	background-color: red;
 	border-radius: 10px;
-/* 	line-height: 2.5; */
 	color: white;
 }
 /* ------------------ */
@@ -214,18 +212,18 @@ footer {
 }
 
 /* --- study_type_area --- */
-#study_type {
+.study_type {
 	display: flex;
 	height: 50px;
 	width: 500px;
 	margin: 0 auto;
 }
-#study_type input[type="radio"] {
+.study_type input[type="radio"] {
 	visibility: hidden;
 	height: 0;
 	width: 0;
 }
-#study_type label {
+.study_type label {
 	display: flex;
 	flex: auto;
 	vertical-align: middle;
@@ -243,32 +241,32 @@ footer {
 	margin-right: 13px;
 	box-shadow: 0px 0px 10px #4E68A0;
 }
-#study_type label:last-of-type {
+.study_type label:last-of-type {
  	margin-right: 0;
 }
-#study_type input[type="radio"]:checked + label {
+.study_type input[type="radio"]:checked + label {
   	background-color: #4E68A0;
 }
 
-#study_type input[type="radio"]:hover:not(:checked) + label {
+.study_type input[type="radio"]:hover:not(:checked) + label {
 	background-color: #4E68A0;
 }
 
 /* ----------------------- */
 
 /* --- study_time_area --- */
-#study_time {
+.study_time {
 	display: flex;
 	height: 50px;
 	width: 150px;
 	margin: 10px auto;
 }
-#study_time input[type="radio"] {
+.study_time input[type="radio"] {
 	visibility: hidden;
 	height: 0;
 	width: 0;
 }
-#study_time label {
+.study_time label {
 	display: flex;
 	flex: auto;
 	vertical-align: middle;
@@ -286,32 +284,32 @@ footer {
 	margin-right: 13px;
 	box-shadow: 0px 0px 10px #4E68A0;
 }
-#study_time label:last-of-type {
+.study_time label:last-of-type {
  	margin-right: 0;
 }
-#study_time input[type="radio"]:checked + label {
+.study_time input[type="radio"]:checked + label {
   	background-color: #4E68A0;
 }
 
-#study_time input[type="radio"]:hover:not(:checked) + label {
+.study_time input[type="radio"]:hover:not(:checked) + label {
 	background-color: #4E68A0;
 }
 
 /* ----------------------- */
 
 /* --- study_contact_type --- */
-#study_contact_type {
+.study_contact_type {
 	display: flex;
 	height: 50px;
 	width: 150px;
 	margin: 10px auto;
 }
-#study_contact_type input[type="radio"] {
+.study_contact_type input[type="radio"] {
 	visibility: hidden;
 	height: 0;
 	width: 0;
 }
-#study_contact_type label {
+.study_contact_type label {
 	display: flex;
 	flex: auto;
 	vertical-align: middle;
@@ -329,16 +327,17 @@ footer {
 	margin-right: 13px;
 	box-shadow: 0px 0px 10px #4E68A0;
 }
-#study_contact_type label:last-of-type {
+.study_contact_type label:last-of-type {
  	margin-right: 0;
 }
-#study_contact_type input[type="radio"]:checked + label {
+.study_contact_type input[type="radio"]:checked + label {
   	background-color: #4E68A0;
 }
 
-#study_contact_type input[type="radio"]:hover:not(:checked) + label {
+.study_contact_type input[type="radio"]:hover:not(:checked) + label {
 	background-color: #4E68A0;
 }
+
 
 /* ----------------------- */
 
@@ -566,4 +565,101 @@ footer {
 }
 
 /* ---------------------------- */
+
+/* ------- study_create ------- */
+
+.select_condition {
+	list-style-type: none;
+	width: 70%;
+	margin: 10px auto;
+}
+.select_condition li {
+	height: 50px;
+	border: 1px solid black;
+	margin-bottom: -1px;
+	line-height: 3;
+}
+.select_condition input[type="radio"] {
+	visibility: hidden;
+	height: 0;
+	width: 0;
+}
+.select_condition label {
+	cursor: pointer;
+}
+.select_condition input[type="radio"]:checked + label {
+	color: red;
+}
+.select_condition li:first-of-type {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	display: flex;
+}
+.select_condition li:first-of-type span {
+	width: 16.6%;
+	text-align: center;
+}
+.select_condition li {
+	display: flex;
+}
+.select_condition li span {
+	width: 50%;
+	text-align: center;
+}
+.select_condition li:last-of-type {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.select_condition #study_space {
+	width: 100%;
+	height: 100%;
+	border: 0px;
+	border-left: 1px solid black;
+	background-color: lightgray;
+}
+.select_condition input[type='number'] {
+	height: 80%;
+}
+#insert_study_create {
+	width: 70%;
+	height: 700px;
+	margin: 10px auto;
+	list-style-type: none;
+}
+#insert_study_create li {
+	width: 100%;
+	height: 50px;
+	margin-bottom: -1px;
+}
+#insert_study_create input[type='text'] {
+	width: 100%;
+	height: 100%;
+	border: 1px solid #758CBD;
+}
+#insert_study_create li:first-of-type input[type='text'] {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+#insert_study_create .insert_study_create_content{
+	width: 100%;
+	height: 500px;
+}
+#insert_study_create textarea {
+	width:100%;
+	height:500px;
+	border: 1px solid #758CBD;
+}
+#insert_study_create input[type='submit'] {
+	width:100%;
+	height: 50px;
+	background-color: #758CBD;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	border: 1px solid #758CBD;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+/* ---------------------------- */
+
 /* ========================================================================== */

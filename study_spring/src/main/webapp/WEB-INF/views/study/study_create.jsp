@@ -31,66 +31,63 @@
 </style>
 <script type="text/javascript">
 	$(function() {
-		$("#type1").on("click", function() {
-			$("#study_space").html("지역 <input type='text' name='study_space'>");
+		$("#contact_type1").on("click", function() {
+			$("#study_space").attr("disabled", false);
+			$("#study_space").attr("placeholder", "");
 		});
-		$("#type2").on("click", function() {
-			$("#study_space").html("");
+		$("#contact_type2").on("click", function() {
+			$("#study_space").val("");
+			$("#study_space").attr("disabled", true);
+			$("#study_space").attr("placeholder", "비대면 시 선택 불가");
 		});
 	});
 </script>
 </head>
 <body>
-	<div class="container">
-		<!-- header -->
-		<jsp:include page="../inc/header.jsp"/>
-		<!------------>
-		
-		<div id="create_study_form">
-			<form action="create" method="post">
-				<div id="study_type">
-					분야
-					<input type="radio" name="study_type" value="수능"> 수능
-					<input type="radio" name="study_type" value="공무원"> 공무원
-					<input type="radio" name="study_type" value="면접"> 면접
-					<input type="radio" name="study_type" value="자격증"> 자격증
-					<input type="radio" name="study_type" value="어학"> 어학
-					<input type="radio" name="study_type" value="기타"> 기타
-				</div>
-				<div id="study_time">
-					시간
-					<input type="radio" name="study_time" value="평일"> 평일
-					<input type="radio" name="study_time" value="주말"> 주말
-				</div>
-				<div id="study_num_of_people">
-					모집인원
-					<input type="text" name="study_num_of_people"> 명
-				</div>
-				<div id="study_contact_type">
-					<input type="radio" id="type1" name="study_contact_type" value="대면"> 대면
-					<input type="radio" id="type2" name="study_contact_type" value="비대면"> 비대면
-				</div>
-				<div id="study_space"></div>
-				
-				<hr>
-				
-				<div id="study_subject">
-					제목 <input type="text" name="study_subject">
-				</div>
-				<div id="study_intro">
-					소개 <input type="text" name="study_intro">
-				</div>
-				내용 <textarea rows="" cols="" name="study_content"></textarea>
-				
-				<div id="submit_study">
-					<input type="submit" value="CREATE">
-				</div>
-			</form>
-		</div>
-		
-		<!-- footer -->
-		<jsp:include page="../inc/footer.jsp"/>
-		<!------------>
+	<!-- header -->
+	<jsp:include page="../inc/header.jsp"/>
+	<!------------>
+	<div class="container_1200_area">
+		<form action="create" method="post">
+			<ul class="select_condition">
+				<li>
+					<span><input type="radio" name="study_type" id="study_type1" value="수능"><label for="study_type1">수능</label></span>
+					<span><input type="radio" name="study_type" id="study_type2" value="공무원"><label for="study_type2">공무원</label></span>
+					<span><input type="radio" name="study_type" id="study_type3" value="면접"><label for="study_type3">면접</label></span>
+					<span><input type="radio" name="study_type" id="study_type4" value="자격증"><label for="study_type4">자격증</label></span>
+					<span><input type="radio" name="study_type" id="study_type5" value="어학"><label for="study_type5">어학</label></span>
+					<span><input type="radio" name="study_type" id="study_type6" value="기타"><label for="study_type6">기타</label></span>
+				</li>
+				<li class="study_time_create">
+					<span><input type="radio" name="study_time" id="study_time1" value="평일"><label for="study_time1">평일</label></span>
+					<span><input type="radio" name="study_time" id="study_time2" value="주말"><label for="study_time2">주말</label></span>
+				</li>
+				<li class="study_contact_type_create">
+					<span><input type="radio" id="contact_type1" name="study_contact_type" value="대면"><label for="contact_type1">대면</label></span>
+					<span><input type="radio" id="contact_type2" name="study_contact_type" value="비대면"><label for="contact_type2">비대면</label></span>
+				</li>
+				<li>
+					<span>지역</span> 
+					<span><input type="text" id="study_space" name="study_space"></span>
+				</li>
+				<li class="study_num_of_people">
+					<span>모집인원</span> 
+					<span><input type="number" min="1" max="20" name="study_num_of_people"> 명</span> 
+				</li>
+			</ul>
+			<hr>
+			
+			<ul id="insert_study_create">
+				<li><input type="text" name="study_subject" placeholder="제목"></li>
+				<li><input type="text" name="study_intro" placeholder="한줄소개"></li>
+				<li class="insert_study_create_content"><textarea name="study_content"></textarea></li>
+				<li><input type="submit" value="CREATE"></li>
+			</ul>
+		</form>
 	</div>
+		
+	<!-- footer -->
+	<jsp:include page="../inc/footer.jsp"/>
+	<!------------>
 </body>
 </html>
