@@ -30,6 +30,7 @@
 		SELECT COUNT(study_idx)
 		  FROM study
 		 WHERE 1=1
+		   AND study_status IN ('Y','N')
 		   <if test="study.study_type != null">
 		  	 AND study_type = #{study.study_type}
 		   </if>
@@ -62,6 +63,7 @@
 			   study_status
 		  FROM study
 		 WHERE 1=1
+		   AND study_status IN ('Y','N')
 		   <if test="study.study_type != null">
 		  	 AND study_type = #{study.study_type}
 		   </if>
@@ -85,6 +87,7 @@
 		SELECT COUNT(study_idx)
 		  FROM study
 		 WHERE 1=1
+		   AND study_status IN ('Y','N')
 		   <if test="study.study_type != null and study.study_type != ''">
 		  	 AND study_type = #{study.study_type}
 		   </if>
@@ -137,6 +140,7 @@
 			   study_status
 		  FROM study
 		 WHERE 1=1
+		   AND study_status IN ('Y','N')
 		   <if test="study.study_type != null and study.study_type != ''">
 		  	 AND study_type = #{study.study_type}
 		   </if>
@@ -239,5 +243,17 @@
 		   AND member_idx = (SELECT member_idx
 		   					   FROM member
 		   					  WHERE member_id = #{member_id})  
+	</update>
+	
+	<!-- study delete -->
+	<update id="deleteStudy">
+		UPDATE study
+		   SET study_status='D'
+		 WHERE 1=1 
+		   AND study_idx = #{study_idx}
+		   AND member_idx = (SELECT member_idx
+		   					   FROM member
+		   					  WHERE member_id = #{member_id}
+		   					    AND member_pass = #{member_pass})
 	</update>
 </mapper>

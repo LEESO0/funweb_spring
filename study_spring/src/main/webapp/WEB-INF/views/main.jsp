@@ -47,9 +47,9 @@
 								<c:when test="${study.study_status eq 'Y' }">
 									<div class="study_card_status">모집중</div>
 								</c:when>
-								<c:otherwise>
-									<div class="study_card_status">모집중</div>
-								</c:otherwise>
+								<c:when test="${study.study_status eq 'N' }">
+									<div class="study_card_status">모집완료</div>
+								</c:when>
 							</c:choose>
 						</div>
 						<div class="study_card_condition">

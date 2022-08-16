@@ -25,13 +25,6 @@
 <!-- jquery 3.6.0 -->
 <script src="${path}/resources/js/jquery-3.6.0.js"></script>
 <!------------------>
-<style type="text/css">
-.container{
-	width:1920px;
-	padding: 0px; 
-	max-width:none!important;
-}
-</style>
 </head>
 <body>
 	<div class="container">

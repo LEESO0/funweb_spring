@@ -181,6 +181,28 @@ public class StudyController {
 			return "fail_back";
 		}
 		
-		return "";
+		return "study/study_delete";
+	}
+	
+	@RequestMapping(value = "deleteStudy", method = RequestMethod.POST)
+	public String deleteStudyPro(String study_idx, String member_pass, HttpSession session, Model model) {
+		
+		String member_id = session.getAttribute("sId").toString();
+		if(member_id == null) {
+			model.addAttribute("msg", "비회원 상태 입니다");
+			return "fail_back";
+		}
+		
+		int updateCount = service.deleteStudy(member_id, member_pass, study_idx);
+		
+		if (updateCount > 0) {
+			model.addAttribute("msg", "삭제를 성공했습니다");
+			model.addAttribute("path", "search");
+			return "success_msg_path";
+		} else {
+			model.addAttribute("msg", "삭제를 실패했습니다");
+			return "fail_back";
+		}
+		
 	}
 }

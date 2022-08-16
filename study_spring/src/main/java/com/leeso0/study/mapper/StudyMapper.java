@@ -14,13 +14,13 @@ public interface StudyMapper {
 	// study 생성
 	void insertStudy(@Param("study") StudyVO study, @Param("member_id") String member_id);
 
-	// studyList listCount 조회
-	int selectStudyListCount(@Param("study") StudyVO study);
+//	// studyList listCount 조회
+//	int selectStudyListCount(@Param("study") StudyVO study);
 
-	// studyList 조회
-	ArrayList<HashMap<String, String>> selectStudyList(@Param("study") StudyVO study, @Param("pageInfo") PageInfo pageInfo);
+//	// studyList 조회
+//	ArrayList<HashMap<String, String>> selectStudyList(@Param("study") StudyVO study, @Param("pageInfo") PageInfo pageInfo);
 
-	// studyList listCount 조회 (정렬, 필터)
+	// studyList listCount 조회 (정렬, 필터)vdd
 	int selectFilteredStudyListCount(@Param("study") StudyVO study, @Param("search_keyword") String search_keyword, @Param("search_filter1") String search_filter1, @Param("search_filter2") String search_filter2);
 
 	// studyList 조회 (정렬, 필터)
@@ -41,5 +41,8 @@ public interface StudyMapper {
 	
 	// study modify
 	int updateStudy(@Param("study") StudyVO study, @Param("member_id") String member_id);
+	
+	// study delete
+	int deleteStudy(@Param("member_id") String member_id, @Param("member_pass") String member_pass, @Param("study_idx") String study_idx);
 
 }

@@ -22,15 +22,15 @@ public class StudyService {
 		mapper.insertStudy(study, member_id);
 	}
 
-	// studyList listCount 조회
-	public int getStudyListCount(StudyVO study) {
-		return mapper.selectStudyListCount(study);
-	}
+//	// studyList listCount 조회
+//	public int getStudyListCount(StudyVO study) {
+//		return mapper.selectStudyListCount(study);
+//	}
 	
-	// studyList 조회
-	public ArrayList<HashMap<String, String>> getStudyList(StudyVO study, PageInfo pageInfo) {
-		return mapper.selectStudyList(study, pageInfo);
-	}
+//	// studyList 조회
+//	public ArrayList<HashMap<String, String>> getStudyList(StudyVO study, PageInfo pageInfo) {
+//		return mapper.selectStudyList(study, pageInfo);
+//	}
 	
 	// studyList listCount 조회 (정렬, 필터)
 	public int getFilteredStudyListCount(StudyVO study, String search_keyword, String search_filter1, String search_filter2) {
@@ -68,6 +68,12 @@ public class StudyService {
 	// study modify
 	public int ModifyStudy(StudyVO study, String member_id) {
 		return mapper.updateStudy(study, member_id);
+	}
+	
+	// study delete
+	public int deleteStudy(String member_id, String member_pass, String study_idx) {
+		return mapper.deleteStudy(member_id, member_pass, study_idx);
+		
 	}
 
 
