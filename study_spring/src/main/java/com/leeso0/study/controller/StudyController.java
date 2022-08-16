@@ -114,11 +114,11 @@ public class StudyController {
 	@RequestMapping(value = "register", method = RequestMethod.GET)
 	public String register(String study_idx, String pageNum, HttpSession session, Model model) {
 		
-		String member_id = session.getAttribute("sId").toString();
-		if(member_id == null) {
+		if(session.getAttribute("sId") == null) {
 			model.addAttribute("msg", "로그인 후 신청 가능합니다");
 			return "fail_back";
 		}
+		String member_id = session.getAttribute("sId").toString();
 		
 		StudyMemberVO studyMember = service.checkStudyMember(study_idx, member_id);
 		
@@ -155,6 +155,10 @@ public class StudyController {
 	public String modifyStudy(StudyVO study, String pageNum, HttpSession session, Model model) {
 		
 		String member_id = session.getAttribute("sId").toString();
+		
+		if(study.getStudy_space() == null) {
+			study.setStudy_space("");
+		}
 		
 		int modifyCount = service.ModifyStudy(study, member_id);
 		

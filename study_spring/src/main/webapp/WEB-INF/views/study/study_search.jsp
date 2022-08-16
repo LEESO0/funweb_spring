@@ -52,7 +52,7 @@ $(function() {
 		<jsp:include page="../inc/header.jsp"/>
 		<!------------>
 		
-		<div id="select_study_condition">
+		<div class="select_study_condition">
 			<form action="search" method="get">
 				<div class="study_type">
 					<input type="radio" name="study_type" id="study_type1" value="수능" <c:if test="${study.study_type eq '수능' }"> checked </c:if>><label for="study_type1">수능</label>
@@ -135,7 +135,7 @@ $(function() {
 							<span class="study_card2">${study.study_time }</span>
 							<span class="study_card1">${study.study_num_of_people }명</span><br>
 							<span class="study_card2">${study.study_contact_type }</span>
-							<c:if test="${study.study_space ne '' }">
+							<c:if test="${study.study_space ne '' && study.study_space ne null }">
 								<span class="study_card1">${study.study_space }</span>
 							</c:if>
 						</div>
